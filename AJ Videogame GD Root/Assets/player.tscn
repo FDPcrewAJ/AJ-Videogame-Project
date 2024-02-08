@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy7hnsibedn0j"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_818dt"]
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hytrv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6k5qs"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_1plui")
+
+[node name="standing_collision_shape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_4vxfi")
+
+[node name="crouching_collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("CapsuleShape3D_818dt")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_hytrv")
+skeleton = NodePath("../standing_collision_shape")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+target_position = Vector3(0, 2, 0)
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Head" type="Node3D" parent="Neck"]
+
+[node name="Camera3D" type="Camera3D" parent="Neck/Head"]
+
+[node name="checkpoint_detector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoint_detector"]
+shape = SubResource("CapsuleShape3D_6k5qs")
