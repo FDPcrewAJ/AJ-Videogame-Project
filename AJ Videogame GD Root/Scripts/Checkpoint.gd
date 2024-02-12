@@ -6,5 +6,4 @@ func _ready() -> void:
 
 
 func _on_area_entered(_area:Area3D) -> void:
-	print("checkpoint")
 	global.check_point_pos = global_position

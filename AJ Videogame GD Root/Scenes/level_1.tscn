@@ -294,15 +294,3 @@ shape = SubResource("BoxShape3D_pwg0c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint Testing/StaticBody3D"]
 mesh = SubResource("BoxMesh_tfng2")
-
-[node name="RigidBody3D2" type="RigidBody3D" parent="world/Joint Testing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 7, 0)
-collision_layer = 4
-collision_mask = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint Testing/RigidBody3D2"]
-shape = SubResource("CylinderShape3D_6egto")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint Testing/RigidBody3D2"]
-mesh = SubResource("CylinderMesh_82y38")
-surface_material_override/0 = SubResource("StandardMaterial3D_hl50j")

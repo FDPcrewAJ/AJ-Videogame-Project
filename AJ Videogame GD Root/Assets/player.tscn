@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=7 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
+[ext_resource type="Script" path="res://Scripts/grapple_cast.gd" id="2_x4va2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
@@ -38,7 +39,60 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck/Head"]
 
+[node name="grapple_cast" type="RayCast3D" parent="Neck/Head"]
+target_position = Vector3(0, 0, -10)
+script = ExtResource("2_x4va2")
+
 [node name="checkpoint_detector" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoint_detector"]
 shape = SubResource("CapsuleShape3D_6k5qs")
+
+[node name="Crosshair" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Center" type="Control" parent="Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="Crosshair/Center"]
+scale = Vector2(1.12349, 1)
+points = PackedVector2Array(0.001, 0, 0, 0)
+width = 2.5
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(3, 0)
+points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 2.5
+
+[node name="Line2D3" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(0, 3)
+rotation = 1.57079
+points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 2.5
+
+[node name="Line2D4" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(-3, 0)
+rotation = 3.14159
+points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 2.5
+
+[node name="Line2D5" type="Line2D" parent="Crosshair/Center"]
+position = Vector2(0, -3)
+rotation = -1.57079
+points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 2.5
