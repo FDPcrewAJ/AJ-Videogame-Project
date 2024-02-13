@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=8 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="Script" path="res://Scripts/grapple_cast.gd" id="2_x4va2"]
@@ -9,6 +9,8 @@
 height = 1.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hytrv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f7s02"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6k5qs"]
 
@@ -42,6 +44,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="grapple_cast" type="RayCast3D" parent="Neck/Head"]
 target_position = Vector3(0, 0, -10)
 script = ExtResource("2_x4va2")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Neck/Head"]
+shape = SubResource("SphereShape3D_f7s02")
+target_position = Vector3(0, 0, -10)
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
 

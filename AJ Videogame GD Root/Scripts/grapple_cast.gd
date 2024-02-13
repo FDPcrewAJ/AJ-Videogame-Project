@@ -8,7 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if is_colliding():
+	if is_colliding() && Input.is_action_pressed("fire"):
 		print("colliding")
+		
 	else:
 		print("not colliding")
