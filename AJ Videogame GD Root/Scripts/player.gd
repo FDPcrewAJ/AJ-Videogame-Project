@@ -7,6 +7,7 @@ class_name Player
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var ray_cast_3d = $RayCast3D
 @onready var camera_3d = $Neck/Head/Camera3D
+@onready var grapplecast = $Neck/Head/grapplecast
 
 # Speed and Movement Variables
 var current_speed = 5.0
@@ -36,6 +37,11 @@ var slide_speed = 10.0
 const mouse_sens = 0.15
 var direction = Vector3.ZERO
 
+# Grappling Variables
+var grappling = false
+var hookpoint = Vector3.ZERO
+var hookpoint_get = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -53,8 +59,8 @@ func _input(event):
 			rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 			head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 			head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
-
-
+	
+	
 func _physics_process(delta):
 	# Reset Scene when key is pressed, and Change scenes when the key is pressed.
 	if Input.is_action_pressed("reset"):
@@ -149,5 +155,21 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 	if Input.is_action_pressed("load_checkpoint"):
 		global_position = global.check_point_pos
-
+	
+	if Input.is_action_pressed("shoot"):
+		if grapplecast.is_colliding():
+			if not grappling:
+				grappling = true
+	if grappling:
+		velocity.y = 0
+		if not hookpoint_get:
+			hookpoint = grapplecast.get_collision_point()
+			hookpoint_get = true
+		if hookpoint.distance_to(transform.origin) > 1:
+			if hookpoint_get:
+				transform.origin = lerp(transform.origin, hookpoint, delta * 1.5)
+		else:
+			grappling = false
+			hookpoint_get = false
+	
 	move_and_slide()
