@@ -41,6 +41,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="grapplecast" type="RayCast3D" parent="Neck/Head"]
 target_position = Vector3(0, 0, -60)
 
+[node name="grappleJoint" type="PinJoint3D" parent="Neck/Head/grapplecast"]
+node_b = NodePath("../../../..")
+exclude_nodes_from_collision = false
+
 [node name="checkpoint_detector" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoint_detector"]

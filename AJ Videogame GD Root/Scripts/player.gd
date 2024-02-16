@@ -8,6 +8,7 @@ class_name Player
 @onready var ray_cast_3d = $RayCast3D
 @onready var camera_3d = $Neck/Head/Camera3D
 @onready var grapplecast = $Neck/Head/grapplecast
+@onready var grapple_joint = $Neck/Head/grapplecast/grappleJoint
 
 # Speed and Movement Variables
 var current_speed = 5.0
@@ -59,8 +60,29 @@ func _input(event):
 			rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 			head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 			head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
-	
-	
+
+
+func grapple(_delta):
+	if Input.is_action_pressed("shoot"):
+		if grapplecast.is_colliding():
+			if not grappling:
+				grappling = true
+	else:
+		grappling = false
+	if grappling:
+		if not hookpoint_get:
+			hookpoint = grapplecast.get_collision_point()
+			hookpoint_get = true
+		if hookpoint.distance_to(transform.origin) > 1:
+			if hookpoint_get:
+				grapple_joint.global_position = hookpoint
+				#grapple_joint.set_node_a = grapplecast.get_path()
+				#transform.origin = lerp(transform.origin, hookpoint, delta * 1.5)
+	else:
+		grappling = false
+		hookpoint_get = false
+
+
 func _physics_process(delta):
 	# Reset Scene when key is pressed, and Change scenes when the key is pressed.
 	if Input.is_action_pressed("reset"):
@@ -156,20 +178,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("load_checkpoint"):
 		global_position = global.check_point_pos
 	
-	if Input.is_action_pressed("shoot"):
-		if grapplecast.is_colliding():
-			if not grappling:
-				grappling = true
-	if grappling:
-		velocity.y = 0
-		if not hookpoint_get:
-			hookpoint = grapplecast.get_collision_point()
-			hookpoint_get = true
-		if hookpoint.distance_to(transform.origin) > 1:
-			if hookpoint_get:
-				transform.origin = lerp(transform.origin, hookpoint, delta * 1.5)
-		else:
-			grappling = false
-			hookpoint_get = false
-	
+	print(grapple_joint.global_position)
+	#print(hookpoint)
+	grapple(delta)
 	move_and_slide()
