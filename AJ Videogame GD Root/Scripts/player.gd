@@ -62,7 +62,7 @@ func _input(event):
 			head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 
 
-func grapple(_delta):
+func grapple(delta):
 	if Input.is_action_pressed("shoot"):
 		if grapplecast.is_colliding():
 			if not grappling:
@@ -76,8 +76,8 @@ func grapple(_delta):
 		if hookpoint.distance_to(transform.origin) > 1:
 			if hookpoint_get:
 				grapple_joint.global_position = hookpoint
-				#grapple_joint.set_node_a = grapplecast.get_path()
-				#transform.origin = lerp(transform.origin, hookpoint, delta * 1.5)
+				#grapple_joint.set_node_a = grapplecast.get_collider().get_path()
+				transform.origin = lerp(transform.origin, hookpoint, delta * 1.5)
 	else:
 		grappling = false
 		hookpoint_get = false
@@ -178,7 +178,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("load_checkpoint"):
 		global_position = global.check_point_pos
 	
-	print(grapple_joint.global_position)
+	#print(grapple_joint.global_position)
 	#print(hookpoint)
 	grapple(delta)
 	move_and_slide()
