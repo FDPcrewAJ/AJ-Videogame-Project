@@ -233,64 +233,64 @@ use_collision = true
 size = Vector3(4, 1.5, 2)
 material = SubResource("StandardMaterial3D_x3xwl")
 
-[node name="Joint Testing" type="Node3D" parent="world"]
+[node name="Joint_testing" type="Node3D" parent="world"]
 
-[node name="Joint1" type="PinJoint3D" parent="world/Joint Testing"]
+[node name="Joint1" type="PinJoint3D" parent="world/Joint_testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6.49291, 0)
 node_a = NodePath("../StaticBody3D")
 node_b = NodePath("../JPole1")
 
-[node name="Joint2" type="PinJoint3D" parent="world/Joint Testing"]
+[node name="Joint2" type="PinJoint3D" parent="world/Joint_testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4.48882, 0)
 node_a = NodePath("../JPole1")
 node_b = NodePath("../JPole2")
 
-[node name="Joint3" type="PinJoint3D" parent="world/Joint Testing"]
+[node name="Joint3" type="PinJoint3D" parent="world/Joint_testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.50388, 0)
 node_a = NodePath("../JPole2")
 node_b = NodePath("../JPole3")
 
-[node name="JPole1" type="RigidBody3D" parent="world/Joint Testing"]
+[node name="JPole1" type="RigidBody3D" parent="world/Joint_testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5.48975, 0)
 collision_layer = 4
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint Testing/JPole1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint_testing/JPole1"]
 shape = SubResource("CylinderShape3D_6egto")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint Testing/JPole1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint_testing/JPole1"]
 mesh = SubResource("CylinderMesh_82y38")
 surface_material_override/0 = SubResource("StandardMaterial3D_hl50j")
 
-[node name="JPole2" type="RigidBody3D" parent="world/Joint Testing"]
+[node name="JPole2" type="RigidBody3D" parent="world/Joint_testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.49768, 0)
 collision_layer = 4
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint Testing/JPole2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint_testing/JPole2"]
 shape = SubResource("CylinderShape3D_6egto")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint Testing/JPole2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint_testing/JPole2"]
 mesh = SubResource("CylinderMesh_82y38")
 surface_material_override/0 = SubResource("StandardMaterial3D_hl50j")
 
-[node name="JPole3" type="RigidBody3D" parent="world/Joint Testing"]
+[node name="JPole3" type="RigidBody3D" parent="world/Joint_testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.49603, 0)
 collision_layer = 4
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint Testing/JPole3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint_testing/JPole3"]
 shape = SubResource("CylinderShape3D_6egto")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint Testing/JPole3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint_testing/JPole3"]
 mesh = SubResource("CylinderMesh_82y38")
 surface_material_override/0 = SubResource("StandardMaterial3D_hl50j")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="world/Joint Testing"]
+[node name="StaticBody3D" type="StaticBody3D" parent="world/Joint_testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 7, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint Testing/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Joint_testing/StaticBody3D"]
 shape = SubResource("BoxShape3D_pwg0c")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint Testing/StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint_testing/StaticBody3D"]
 mesh = SubResource("BoxMesh_tfng2")

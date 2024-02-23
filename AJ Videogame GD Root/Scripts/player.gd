@@ -40,8 +40,8 @@ var direction = Vector3.ZERO
 
 # Grappling Variables
 var grappling = false
-var hookpoint = Vector3.ZERO
-var hookpoint_get = false
+var grapple_point = Vector3.ZERO
+var grapple_point_get = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -70,17 +70,17 @@ func grapple(delta):
 	else:
 		grappling = false
 	if grappling:
-		if not hookpoint_get:
-			hookpoint = grapplecast.get_collision_point()
-			hookpoint_get = true
-		if hookpoint.distance_to(transform.origin) > 1:
-			if hookpoint_get:
-				grapple_joint.global_position = hookpoint
-				#grapple_joint.set_node_a = grapplecast.get_collider().get_path()
-				transform.origin = lerp(transform.origin, hookpoint, delta * 1.5)
+		if not grapple_point_get:
+			grapple_point = grapplecast.get_collision_point()
+			grapple_point_get = true
+		if grapple_point.distance_to(transform.origin) > 1:
+			if grapple_point_get:
+				grapple_joint.global_position = grapple_point
+				grapple_joint.set_node_a(grapplecast.get_collider().get_path())
+				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
 	else:
 		grappling = false
-		hookpoint_get = false
+		grapple_point_get = false
 
 
 func _physics_process(delta):
@@ -179,6 +179,6 @@ func _physics_process(delta):
 		global_position = global.check_point_pos
 	
 	#print(grapple_joint.global_position)
-	#print(hookpoint)
+	#print(grapple_point)
 	grapple(delta)
 	move_and_slide()
