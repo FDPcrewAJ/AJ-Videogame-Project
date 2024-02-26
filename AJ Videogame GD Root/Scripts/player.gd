@@ -8,7 +8,6 @@ class_name Player
 @onready var ray_cast_3d = $RayCast3D
 @onready var camera_3d = $Neck/Head/Camera3D
 @onready var grapplecast = $Neck/Head/grapplecast
-@onready var grapple_joint = $Neck/Head/grapplecast/grappleJoint
 
 # Speed and Movement Variables
 var current_speed = 5.0
@@ -75,12 +74,12 @@ func grapple(delta):
 			grapple_point_get = true
 		if grapple_point.distance_to(transform.origin) > 1:
 			if grapple_point_get:
-				grapple_joint.global_position = grapple_point
-				grapple_joint.set_node_a(grapplecast.get_collider().get_path())
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
 	else:
 		grappling = false
 		grapple_point_get = false
+	if Input.is_action_just_released("shoot"):
+		velocity.y += 5
 
 
 func _physics_process(delta):
