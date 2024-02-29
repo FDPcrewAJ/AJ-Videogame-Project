@@ -78,18 +78,10 @@ func grapple(delta):
 	else:
 		grappling = false
 		grapple_point_get = false
-	if Input.is_action_just_released("shoot"):
-		velocity.y += 5
 
 
 func _physics_process(delta):
 	# Reset Scene when key is pressed, and Change scenes when the key is pressed.
-	if Input.is_action_pressed("reset"):
-		get_tree().reload_current_scene()
-	if Input.is_action_pressed("sc1"):
-		get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
-	if Input.is_action_pressed("sc2"):
-		get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
 	# Get movement inputs
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	# Handling Movement States

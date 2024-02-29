@@ -1,26 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://ckfbil3wmgs7p"]
+[gd_scene load_steps=20 format=3 uid="uid://ckfbil3wmgs7p"]
 
-[ext_resource type="Texture2D" uid="uid://ccsbn04f2a006" path="res://Imports/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_lqwos"]
 [ext_resource type="PackedScene" uid="uid://cig5bv4l3apst" path="res://Scenes/controls.tscn" id="1_sgsrc"]
 [ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="1_xe6ow"]
 [ext_resource type="PackedScene" uid="uid://cy7hnsibedn0j" path="res://Assets/player.tscn" id="2_8r2gb"]
 [ext_resource type="PackedScene" uid="uid://bvbo0d7rp5dnk" path="res://Assets/checkpoint.tscn" id="2_w06sm"]
 [ext_resource type="Texture2D" uid="uid://jo71riscp6xf" path="res://Textures/Prototype Textures/Orange/texture_01.png" id="2_w023m"]
 [ext_resource type="Texture2D" uid="uid://biotaa1ke6tpc" path="res://Textures/Prototype Textures/Purple/texture_07.png" id="3_5wy11"]
+[ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="3_rkc48"]
 [ext_resource type="Texture2D" uid="uid://rrowbell0tnx" path="res://Textures/Prototype Textures/Red/texture_04.png" id="8_5bhdb"]
 [ext_resource type="Texture2D" uid="uid://d0n0jnjvvvr6i" path="res://Textures/Prototype Textures/Dark/texture_03.png" id="9_6kg7g"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7dher"]
-panorama = ExtResource("1_lqwos")
-
-[sub_resource type="Sky" id="Sky_jijt1"]
-sky_material = SubResource("PanoramaSkyMaterial_7dher")
-
-[sub_resource type="Environment" id="Environment_vnh05"]
-background_mode = 2
-sky = SubResource("Sky_jijt1")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4685"]
 albedo_texture = ExtResource("1_xe6ow")
@@ -77,7 +65,7 @@ collision_mask = 3
 [node name="env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
-environment = SubResource("Environment_vnh05")
+environment = ExtResource("3_rkc48")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ysudxhafxrwn"]
+
+[ext_resource type="Script" path="res://Scripts/change_scene.gd" id="1_50c8t"]
+
+[node name="scene_switch" type="Node3D"]
+script = ExtResource("1_50c8t")

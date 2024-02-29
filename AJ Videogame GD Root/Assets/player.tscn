@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=7 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
+[ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
@@ -94,3 +95,5 @@ position = Vector2(0, -3)
 rotation = -1.57079
 points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 2.5
+
+[node name="scene_switch" parent="." instance=ExtResource("2_1b7xy")]
