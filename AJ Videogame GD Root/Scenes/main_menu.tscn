@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cm55hroicd0n0"]
+[gd_scene load_steps=20 format=3 uid="uid://cm55hroicd0n0"]
 
 [ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="1_jk2f8"]
 [ext_resource type="Script" path="res://Scripts/rotate_menu.gd" id="2_a2h1c"]
 [ext_resource type="Texture2D" uid="uid://1nvltga4emg0" path="res://Textures/Prototype Textures/Dark/texture_07.png" id="2_p2ene"]
 [ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="4_s7fq2"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="5_rbdqq"]
+[ext_resource type="PackedScene" uid="uid://bekrnanblaq83" path="res://Scenes/main_menu_ui.tscn" id="6_lqyax"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjyh1"]
 albedo_texture = ExtResource("2_p2ene")
@@ -135,106 +136,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 11)
 
 [node name="scene_switch" parent="." instance=ExtResource("5_rbdqq")]
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 161.0
-offset_top = 114.0
-offset_right = 692.0
-offset_bottom = 457.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 155
-text = "Test
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Continue" type="Label" parent="UI/Title"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = 142.5
-offset_right = 152.5
-offset_bottom = 219.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 56
-text = "Continue"
-horizontal_alignment = 1
-
-[node name="Start" type="Label" parent="UI/Title"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = 247.5
-offset_right = 152.5
-offset_bottom = 324.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 56
-text = "Start Game"
-horizontal_alignment = 1
-
-[node name="Settings" type="Label" parent="UI/Title"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = 360.5
-offset_right = 152.5
-offset_bottom = 437.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 56
-text = "Settings"
-horizontal_alignment = 1
-
-[node name="Exit" type="Label" parent="UI/Title"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = 465.5
-offset_right = 137.0
-offset_bottom = 542.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 56
-text = "Exit Game"
-horizontal_alignment = 1
+[node name="Main Menu UI" parent="." instance=ExtResource("6_lqyax")]

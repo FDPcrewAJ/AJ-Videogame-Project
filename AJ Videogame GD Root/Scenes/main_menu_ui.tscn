@@ -1,0 +1,132 @@
+[gd_scene load_steps=2 format=3 uid="uid://bekrnanblaq83"]
+
+[ext_resource type="Script" path="res://Scenes/menu_script.gd" id="1_ysp4d"]
+
+[node name="Main Menu UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ysp4d")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 114.0
+offset_right = 692.0
+offset_bottom = 457.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 86
+text = "Potato-MAN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 142.5
+offset_right = 152.5
+offset_bottom = 219.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 56
+text = "Continue"
+flat = true
+
+[node name="Start" type="Button" parent="Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 247.5
+offset_right = 152.5
+offset_bottom = 324.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 56
+text = "Start Game"
+flat = true
+
+[node name="Settings" type="Button" parent="Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 360.5
+offset_right = 152.5
+offset_bottom = 437.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 56
+text = "Settings"
+flat = true
+
+[node name="Label" type="Label" parent="Title/Settings"]
+visible = false
+layout_mode = 0
+offset_left = 194.5
+offset_top = 85.0
+offset_right = 477.5
+offset_bottom = 140.0
+rotation = -0.383095
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 40
+text = "Not Ready Yet!"
+
+[node name="Exit" type="Button" parent="Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = 465.5
+offset_right = 137.0
+offset_bottom = 542.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 56
+text = "Exit Game"
+flat = true
+
+[connection signal="pressed" from="Title/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Title/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Title/Exit" to="." method="_on_exit_pressed"]
