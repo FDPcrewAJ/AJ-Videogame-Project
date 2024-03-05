@@ -41,6 +41,7 @@ var direction = Vector3.ZERO
 var grappling = false
 var grapple_point = Vector3.ZERO
 var grapple_point_get = false
+var grapple_length = grapple_point.distance_to(transform.origin)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -72,12 +73,16 @@ func grapple(delta):
 		if not grapple_point_get:
 			grapple_point = grapplecast.get_collision_point()
 			grapple_point_get = true
-		if grapple_point.distance_to(transform.origin) > 1:
+			print(grapple_length)
+			grapple_length = grapple_point.distance_to(transform.origin)
+		if grapple_length > 1:
 			if grapple_point_get:
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
+				
 	else:
 		grappling = false
 		grapple_point_get = false
+		
 
 
 func _physics_process(delta):
