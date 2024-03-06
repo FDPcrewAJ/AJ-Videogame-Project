@@ -76,9 +76,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -152.5
-offset_top = 360.5
+offset_top = 349.5
 offset_right = 152.5
-offset_bottom = 437.5
+offset_bottom = 434.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -90,7 +90,43 @@ theme_override_font_sizes/font_size = 56
 text = "Settings"
 flat = true
 
-[node name="Label" type="Label" parent="Title/Settings"]
+[node name="nr_1" type="Label" parent="Title/Settings"]
+visible = false
+layout_mode = 0
+offset_left = 194.5
+offset_top = 85.0
+offset_right = 477.5
+offset_bottom = 140.0
+rotation = -0.383095
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 40
+text = "Not Ready Yet!"
+
+[node name="Credits" type="Button" parent="Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 451.5
+offset_right = 152.5
+offset_bottom = 536.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 56
+text = "Credits"
+flat = true
+
+[node name="nr_2" type="Label" parent="Title/Credits"]
 visible = false
 layout_mode = 0
 offset_left = 194.5
@@ -111,10 +147,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = 465.5
-offset_right = 137.0
-offset_bottom = 542.5
+offset_left = -141.0
+offset_top = 551.5
+offset_right = 141.0
+offset_bottom = 636.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -129,4 +165,5 @@ flat = true
 [connection signal="pressed" from="Title/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Title/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Title/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Title/Exit" to="." method="_on_exit_pressed"]

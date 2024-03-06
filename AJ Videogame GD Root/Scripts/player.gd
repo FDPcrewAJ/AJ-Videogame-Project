@@ -73,16 +73,16 @@ func grapple(delta):
 		if not grapple_point_get:
 			grapple_point = grapplecast.get_collision_point()
 			grapple_point_get = true
-			print(grapple_length)
 			grapple_length = grapple_point.distance_to(transform.origin)
 		if grapple_length > 1:
 			if grapple_point_get:
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
-				
+				clamp(grapple_length, 1, 2)
+			if transform.origin < grapple_point:
+				velocity.y = 9.8
 	else:
 		grappling = false
 		grapple_point_get = false
-		
 
 
 func _physics_process(delta):
