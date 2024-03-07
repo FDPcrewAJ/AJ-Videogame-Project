@@ -75,11 +75,10 @@ func grapple(delta):
 			grapple_point_get = true
 			grapple_length = grapple_point.distance_to(transform.origin)
 		if grapple_length > 1:
+			velocity.y = 0
 			if grapple_point_get:
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
 				clamp(grapple_length, 1, 2)
-			if transform.origin < grapple_point:
-				velocity.y = 9.8
 	else:
 		grappling = false
 		grapple_point_get = false
