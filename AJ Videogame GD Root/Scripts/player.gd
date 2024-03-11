@@ -8,6 +8,8 @@ class_name Player
 @onready var ray_cast_3d = $RayCast3D
 @onready var camera_3d = $Neck/Head/Camera3D
 @onready var grapplecast = $Neck/Head/grapplecast
+@onready var knife = $Neck/knife_holder/knife
+@onready var knife_timer = $Neck/knife_holder/knife_timer
 
 # Speed and Movement Variables
 var current_speed = 5.0
@@ -82,6 +84,15 @@ func grapple(delta):
 	else:
 		grappling = false
 		grapple_point_get = false
+
+
+func throw_knife():
+	if Input.is_action_just_pressed("shoot"):
+		knife_timer.start()
+		knife.visible = false
+
+func _on_knife_timer_timeout():
+	knife.visible = true
 
 
 func _physics_process(delta):
@@ -175,5 +186,6 @@ func _physics_process(delta):
 	
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
-	grapple(delta)
+	#grapple(delta)
+	throw_knife()
 	move_and_slide()

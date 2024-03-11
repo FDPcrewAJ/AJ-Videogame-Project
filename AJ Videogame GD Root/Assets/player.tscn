@@ -43,9 +43,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="grapplecast" type="RayCast3D" parent="Neck/Head"]
 target_position = Vector3(0, 0, -60)
 
-[node name="knife" parent="Neck" instance=ExtResource("3_gvpku")]
+[node name="knife_holder" type="Node3D" parent="Neck"]
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 0.556237, -0.684145, -0.689484)
-visible = false
+
+[node name="knife" parent="Neck/knife_holder" instance=ExtResource("3_gvpku")]
+
+[node name="knife_timer" type="Timer" parent="Neck/knife_holder"]
+one_shot = true
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
 
@@ -102,3 +106,5 @@ points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 2.5
 
 [node name="scene_switch" parent="." instance=ExtResource("2_1b7xy")]
+
+[connection signal="timeout" from="Neck/knife_holder/knife_timer" to="." method="_on_knife_timer_timeout"]
