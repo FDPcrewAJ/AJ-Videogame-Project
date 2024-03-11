@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=8 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
+[ext_resource type="PackedScene" uid="uid://b0eo2ay8svpw0" path="res://Assets/knife/knife.glb" id="3_gvpku"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
@@ -41,6 +42,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="grapplecast" type="RayCast3D" parent="Neck/Head"]
 target_position = Vector3(0, 0, -60)
+
+[node name="knife" parent="Neck" instance=ExtResource("3_gvpku")]
+transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 0.556237, -0.684145, -0.689484)
+visible = false
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
 
