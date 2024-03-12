@@ -5,11 +5,14 @@ class_name Player
 @onready var head = $Neck/Head
 @onready var standing_collision_shape = $standing_collision_shape
 @onready var crouching_collision_shape = $crouching_collision_shape
-@onready var ray_cast_3d = $RayCast3D
+@onready var collision_check = $collision_check
 @onready var camera_3d = $Neck/Head/Camera3D
 @onready var grapplecast = $Neck/Head/grapplecast
+
+# Weapon ready vars
 @onready var knife = $Neck/knife_holder/knife
 @onready var knife_timer = $Neck/knife_holder/knife_timer
+@onready var weapon_cast = $Neck/Head/weapon_cast
 
 # Speed and Movement Variables
 var current_speed = 5.0
@@ -86,13 +89,16 @@ func grapple(delta):
 		grapple_point_get = false
 
 
-func throw_knife():
+func throw_knife(delta):
 	if Input.is_action_just_pressed("shoot"):
 		knife_timer.start()
-		knife.visible = false
+		#knife.visible = false
+		knife.position = lerp(Vector3.ZERO, weapon_cast.get_collision_point(), delta * 1.5)
+
 
 func _on_knife_timer_timeout():
 	knife.visible = true
+	knife.position = Vector3.ZERO
 
 
 func _physics_process(delta):
@@ -118,7 +124,7 @@ func _physics_process(delta):
 		walking = false
 		sprinting = false
 		crouching = true
-	elif !ray_cast_3d.is_colliding():
+	elif !collision_check.is_colliding():
 		# Standing
 		standing_collision_shape.disabled = false
 		crouching_collision_shape.disabled = true
@@ -187,5 +193,5 @@ func _physics_process(delta):
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
 	#grapple(delta)
-	throw_knife()
+	throw_knife(delta)
 	move_and_slide()
