@@ -30,8 +30,7 @@ func _on_settings_pressed():
 
 
 func _on_credits_pressed():
-	change_visibility()
-	inc_text_2.set_visible(inc_bool)
+	get_tree().change_scene_to_file("res://Scenes/credits_screen.tscn")
 
 
 func _on_exit_pressed():

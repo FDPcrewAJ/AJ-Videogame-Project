@@ -89,11 +89,10 @@ func grapple(delta):
 		grapple_point_get = false
 
 
-func throw_knife(delta):
+func throw_knife():
 	if Input.is_action_just_pressed("shoot"):
 		knife_timer.start()
-		#knife.visible = false
-		knife.position = lerp(Vector3.ZERO, weapon_cast.get_collision_point(), delta * 1.5)
+		knife.visible = false
 
 
 func _on_knife_timer_timeout():
@@ -193,5 +192,5 @@ func _physics_process(delta):
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
 	#grapple(delta)
-	throw_knife(delta)
+	throw_knife()
 	move_and_slide()

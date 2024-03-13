@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://djm2gfjyq4vmg"]
+
+[ext_resource type="Script" path="res://Scenes/credits_script.gd" id="1_jbsit"]
+[ext_resource type="FontFile" uid="uid://bj4dssu7l6lx7" path="res://Fonts/Itim/Itim-Regular.ttf" id="2_j5h0i"]
+[ext_resource type="FontFile" uid="uid://dybhj5pc8e0n1" path="res://Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="3_vh4ch"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwsoj"]
+albedo_color = Color(0.117647, 0, 0.447059, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7m830"]
+material = SubResource("StandardMaterial3D_gwsoj")
+size = Vector2(1920, 1080)
+
+[node name="credits_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jbsit")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
+mesh = SubResource("QuadMesh_7m830")
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 0
+offset_left = -226.0
+offset_top = 408.0
+offset_right = 227.0
+offset_bottom = 517.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_j5h0i")
+theme_override_font_sizes/font_size = 56
+text = "Return to Menu"
+flat = true
+
+[node name="credits_title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.5
+offset_top = -503.0
+offset_right = 164.5
+offset_bottom = -412.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_vh4ch")
+theme_override_font_sizes/font_size = 90
+text = "Credits"
+
+[node name="filler" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -666.0
+offset_top = 57.0
+offset_right = 658.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.218224
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_vh4ch")
+theme_override_font_sizes/font_size = 141
+text = "Nothing Ready Yet!"
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
