@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://brgx0q665pc8p"]
+
+[ext_resource type="PackedScene" uid="uid://b0eo2ay8svpw0" path="res://Imports/knife/knife.glb" id="1_12o05"]
+
+[node name="Knife" type="Node3D"]
+
+[node name="knife" parent="." instance=ExtResource("1_12o05")]

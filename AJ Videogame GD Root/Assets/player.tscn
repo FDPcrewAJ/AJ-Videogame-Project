@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
-[ext_resource type="PackedScene" uid="uid://b0eo2ay8svpw0" path="res://Assets/knife/knife.glb" id="3_gvpku"]
+[ext_resource type="PackedScene" uid="uid://brgx0q665pc8p" path="res://Assets/knife.tscn" id="2_rl7at"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
@@ -49,10 +49,10 @@ target_position = Vector3(0, 0, -500)
 [node name="knife_holder" type="Node3D" parent="Neck"]
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 0.556237, -0.684145, -0.689484)
 
-[node name="knife" parent="Neck/knife_holder" instance=ExtResource("3_gvpku")]
-
 [node name="knife_timer" type="Timer" parent="Neck/knife_holder"]
 one_shot = true
+
+[node name="Knife" parent="Neck/knife_holder" instance=ExtResource("2_rl7at")]
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
 

@@ -10,7 +10,7 @@ class_name Player
 @onready var grapplecast = $Neck/Head/grapplecast
 
 # Weapon ready vars
-@onready var knife = $Neck/knife_holder/knife
+@onready var knife = $Neck/knife_holder/Knife
 @onready var knife_timer = $Neck/knife_holder/knife_timer
 @onready var weapon_cast = $Neck/Head/weapon_cast
 
@@ -92,11 +92,11 @@ func grapple(delta):
 func throw_knife():
 	if Input.is_action_just_pressed("shoot"):
 		knife_timer.start()
-		knife.visible = false
+		var knife_position = weapon_cast.get_collision_point()
+		knife.global_position = knife_position
 
 
 func _on_knife_timer_timeout():
-	knife.visible = true
 	knife.position = Vector3.ZERO
 
 
@@ -188,7 +188,8 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 	if Input.is_action_pressed("load_checkpoint"):
 		global_position = global.check_point_pos
-	
+
+
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
 	#grapple(delta)
