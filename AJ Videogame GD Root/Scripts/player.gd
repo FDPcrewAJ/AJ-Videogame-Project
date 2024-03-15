@@ -1,18 +1,18 @@
 extends CharacterBody3D
 class_name Player
 # Player Nodes
-@onready var neck = $Neck
-@onready var head = $Neck/Head
+@onready var neck = $neck
+@onready var head = $neck/head
 @onready var standing_collision_shape = $standing_collision_shape
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var collision_check = $collision_check
-@onready var camera_3d = $Neck/Head/Camera3D
-@onready var grapplecast = $Neck/Head/grapplecast
+@onready var camera_3d = $neck/head/player_camera
+@onready var grapplecast = $neck/head/grapple_cast
 
 # Weapon ready vars
-@onready var knife = $Neck/knife_holder/Knife
-@onready var knife_timer = $Neck/knife_holder/knife_timer
-@onready var weapon_cast = $Neck/Head/weapon_cast
+@onready var knife = $neck/knife_holder/Knife
+@onready var knife_timer = $neck/knife_holder/knife_timer
+@onready var weapon_cast = $neck/head/weapon_cast
 
 # Speed and Movement Variables
 var current_speed = 5.0

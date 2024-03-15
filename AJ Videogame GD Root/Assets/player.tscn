@@ -33,33 +33,33 @@ skeleton = NodePath("../standing_collision_shape")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 target_position = Vector3(0, 2, 0)
 
-[node name="Neck" type="Node3D" parent="."]
+[node name="neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
-[node name="Head" type="Node3D" parent="Neck"]
+[node name="head" type="Node3D" parent="neck"]
 
-[node name="Camera3D" type="Camera3D" parent="Neck/Head"]
+[node name="player_camera" type="Camera3D" parent="neck/head"]
 
-[node name="grapplecast" type="RayCast3D" parent="Neck/Head"]
+[node name="grapple_cast" type="RayCast3D" parent="neck/head"]
 target_position = Vector3(0, 0, -60)
 
-[node name="weapon_cast" type="RayCast3D" parent="Neck/Head"]
+[node name="weapon_cast" type="RayCast3D" parent="neck/head"]
 target_position = Vector3(0, 0, -500)
 
-[node name="knife_holder" type="Node3D" parent="Neck"]
+[node name="knife_holder" type="Node3D" parent="neck"]
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 0.556237, -0.684145, -0.689484)
 
-[node name="knife_timer" type="Timer" parent="Neck/knife_holder"]
+[node name="knife_timer" type="Timer" parent="neck/knife_holder"]
 one_shot = true
 
-[node name="Knife" parent="Neck/knife_holder" instance=ExtResource("2_rl7at")]
+[node name="Knife" parent="neck/knife_holder" instance=ExtResource("2_rl7at")]
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoint_detector"]
 shape = SubResource("CapsuleShape3D_6k5qs")
 
-[node name="Crosshair" type="Control" parent="."]
+[node name="crosshair" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Center" type="Control" parent="Crosshair"]
+[node name="center" type="Control" parent="crosshair"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -78,31 +78,31 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Line2D" type="Line2D" parent="Crosshair/Center"]
+[node name="center dot" type="Line2D" parent="crosshair/center"]
 scale = Vector2(1.12349, 1)
 points = PackedVector2Array(0.001, 0, 0, 0)
 width = 2.5
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Line2D2" type="Line2D" parent="Crosshair/Center"]
+[node name="right_line" type="Line2D" parent="crosshair/center"]
 position = Vector2(3, 0)
 points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 2.5
 
-[node name="Line2D3" type="Line2D" parent="Crosshair/Center"]
+[node name="bottom_line" type="Line2D" parent="crosshair/center"]
 position = Vector2(0, 3)
 rotation = 1.57079
 points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 2.5
 
-[node name="Line2D4" type="Line2D" parent="Crosshair/Center"]
+[node name="left_line" type="Line2D" parent="crosshair/center"]
 position = Vector2(-3, 0)
 rotation = 3.14159
 points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 2.5
 
-[node name="Line2D5" type="Line2D" parent="Crosshair/Center"]
+[node name="top_line" type="Line2D" parent="crosshair/center"]
 position = Vector2(0, -3)
 rotation = -1.57079
 points = PackedVector2Array(5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -110,4 +110,4 @@ width = 2.5
 
 [node name="scene_switch" parent="." instance=ExtResource("2_1b7xy")]
 
-[connection signal="timeout" from="Neck/knife_holder/knife_timer" to="." method="_on_knife_timer_timeout"]
+[connection signal="timeout" from="neck/knife_holder/knife_timer" to="." method="_on_knife_timer_timeout"]
