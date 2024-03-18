@@ -46,13 +46,14 @@ target_position = Vector3(0, 0, -60)
 [node name="weapon_cast" type="RayCast3D" parent="neck/head"]
 target_position = Vector3(0, 0, -500)
 
-[node name="knife_holder" type="Node3D" parent="neck"]
+[node name="knife_holder" type="Node3D" parent="neck/head"]
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 0.556237, -0.684145, -0.689484)
 
-[node name="knife_timer" type="Timer" parent="neck/knife_holder"]
+[node name="knife_timer" type="Timer" parent="neck/head/knife_holder"]
 one_shot = true
 
-[node name="Knife" parent="neck/knife_holder" instance=ExtResource("2_rl7at")]
+[node name="Knife" parent="neck/head/knife_holder" instance=ExtResource("2_rl7at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417013, 0.00232923, 0)
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
 
@@ -110,4 +111,4 @@ width = 2.5
 
 [node name="scene_switch" parent="." instance=ExtResource("2_1b7xy")]
 
-[connection signal="timeout" from="neck/knife_holder/knife_timer" to="." method="_on_knife_timer_timeout"]
+[connection signal="timeout" from="neck/head/knife_holder/knife_timer" to="." method="_on_knife_timer_timeout"]

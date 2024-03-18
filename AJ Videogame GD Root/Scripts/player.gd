@@ -10,8 +10,8 @@ class_name Player
 @onready var grapplecast = $neck/head/grapple_cast
 
 # Weapon ready vars
-@onready var knife = $neck/knife_holder/Knife
-@onready var knife_timer = $neck/knife_holder/knife_timer
+@onready var knife = $neck/head/knife_holder/Knife
+@onready var knife_timer = $neck/head/knife_holder/knife_timer
 @onready var weapon_cast = $neck/head/weapon_cast
 
 # Speed and Movement Variables
@@ -46,7 +46,7 @@ var direction = Vector3.ZERO
 var grappling = false
 var grapple_point = Vector3.ZERO
 var grapple_point_get = false
-var grapple_length = grapple_point.distance_to(transform.origin)
+var grapple_length = Vector2.ZERO
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -83,9 +83,7 @@ func grapple(delta):
 			velocity.y = 0
 			if grapple_point_get:
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
-				clamp(grapple_length, 1, 2)
 	else:
-		grappling = false
 		grapple_point_get = false
 
 
@@ -192,6 +190,6 @@ func _physics_process(delta):
 
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
-	#grapple(delta)
-	throw_knife()
+	grapple(delta)
+	#throw_knife()
 	move_and_slide()
