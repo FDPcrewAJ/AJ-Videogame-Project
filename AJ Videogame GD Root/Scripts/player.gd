@@ -10,8 +10,8 @@ class_name Player
 @onready var grapplecast = $neck/head/grapple_cast
 
 # Weapon ready vars
-@onready var knife = $neck/head/knife_holder/Knife
-@onready var knife_timer = $neck/head/knife_holder/knife_timer
+@onready var knife = $neck/head/weapon_holder/knife_holder/Knife
+@onready var knife_timer = $neck/head/weapon_holder/knife_holder/knife_timer
 @onready var weapon_cast = $neck/head/weapon_cast
 
 # Speed and Movement Variables
@@ -190,6 +190,6 @@ func _physics_process(delta):
 
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
-	grapple(delta)
-	#throw_knife()
+	#grapple(delta)
+	throw_knife()
 	move_and_slide()
