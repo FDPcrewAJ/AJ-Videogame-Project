@@ -193,3 +193,7 @@ func _physics_process(delta):
 	#grapple(delta)
 	throw_knife()
 	move_and_slide()
+
+
+func _on_death_detector_area_entered(_area):
+	global_position = global.check_point_pos

@@ -1,34 +1,34 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckfbil3wmgs7p"]
+[gd_scene load_steps=21 format=3 uid="uid://ckfbil3wmgs7p"]
 
-[ext_resource type="PackedScene" uid="uid://cig5bv4l3apst" path="res://Scenes/controls.tscn" id="1_sgsrc"]
-[ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="1_xe6ow"]
-[ext_resource type="PackedScene" uid="uid://cy7hnsibedn0j" path="res://Assets/player.tscn" id="2_8r2gb"]
-[ext_resource type="PackedScene" uid="uid://bvbo0d7rp5dnk" path="res://Assets/checkpoint.tscn" id="2_w06sm"]
-[ext_resource type="Texture2D" uid="uid://jo71riscp6xf" path="res://Textures/Prototype Textures/Orange/texture_01.png" id="2_w023m"]
-[ext_resource type="Texture2D" uid="uid://biotaa1ke6tpc" path="res://Textures/Prototype Textures/Purple/texture_07.png" id="3_5wy11"]
-[ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="3_rkc48"]
-[ext_resource type="Texture2D" uid="uid://rrowbell0tnx" path="res://Textures/Prototype Textures/Red/texture_04.png" id="8_5bhdb"]
-[ext_resource type="Texture2D" uid="uid://d0n0jnjvvvr6i" path="res://Textures/Prototype Textures/Dark/texture_03.png" id="9_6kg7g"]
+[ext_resource type="PackedScene" uid="uid://cig5bv4l3apst" path="res://Scenes/controls.tscn" id="1_1b8s2"]
+[ext_resource type="PackedScene" uid="uid://cy7hnsibedn0j" path="res://Assets/player.tscn" id="2_cfpsl"]
+[ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="3_sh1h7"]
+[ext_resource type="PackedScene" uid="uid://bvbo0d7rp5dnk" path="res://Assets/checkpoint.tscn" id="4_guaaf"]
+[ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="5_r6rxk"]
+[ext_resource type="Texture2D" uid="uid://jo71riscp6xf" path="res://Textures/Prototype Textures/Orange/texture_01.png" id="6_xxmhn"]
+[ext_resource type="Texture2D" uid="uid://biotaa1ke6tpc" path="res://Textures/Prototype Textures/Purple/texture_07.png" id="7_xcnug"]
+[ext_resource type="Texture2D" uid="uid://rrowbell0tnx" path="res://Textures/Prototype Textures/Red/texture_04.png" id="8_gpo7l"]
+[ext_resource type="Texture2D" uid="uid://d0n0jnjvvvr6i" path="res://Textures/Prototype Textures/Dark/texture_03.png" id="9_dsb2g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4685"]
-albedo_texture = ExtResource("1_xe6ow")
+albedo_texture = ExtResource("5_r6rxk")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1sdd"]
-albedo_texture = ExtResource("2_w023m")
+albedo_texture = ExtResource("6_xxmhn")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x765a"]
-albedo_texture = ExtResource("2_w023m")
+albedo_texture = ExtResource("6_xxmhn")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3xwl"]
-albedo_texture = ExtResource("3_5wy11")
+albedo_texture = ExtResource("7_xcnug")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 
@@ -40,32 +40,35 @@ top_radius = 0.15
 bottom_radius = 0.15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl50j"]
-albedo_texture = ExtResource("8_5bhdb")
+albedo_texture = ExtResource("8_gpo7l")
 uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pwg0c"]
 size = Vector3(2, 1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoil1"]
-albedo_texture = ExtResource("9_6kg7g")
+albedo_texture = ExtResource("9_dsb2g")
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_tfng2"]
 material = SubResource("StandardMaterial3D_qoil1")
 size = Vector3(2, 1, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k44vx"]
+size = Vector3(100, 1, 100)
+
 [node name="Level_1" type="Node3D"]
 
-[node name="Controls" parent="." instance=ExtResource("1_sgsrc")]
+[node name="Controls" parent="." instance=ExtResource("1_1b8s2")]
 
-[node name="Player" parent="." instance=ExtResource("2_8r2gb")]
+[node name="Player" parent="." instance=ExtResource("2_cfpsl")]
 collision_layer = 2
 collision_mask = 3
 
 [node name="env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
-environment = ExtResource("3_rkc48")
+environment = ExtResource("3_sh1h7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -75,10 +78,10 @@ shadow_enabled = true
 
 [node name="Checkpoints" type="Node3D" parent="world"]
 
-[node name="Checkpoint" parent="world/Checkpoints" instance=ExtResource("2_w06sm")]
+[node name="Checkpoint" parent="world/Checkpoints" instance=ExtResource("4_guaaf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 
-[node name="Checkpoint2" parent="world/Checkpoints" instance=ExtResource("2_w06sm")]
+[node name="Checkpoint2" parent="world/Checkpoints" instance=ExtResource("4_guaaf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, -15)
 
 [node name="Floor" type="CSGBox3D" parent="world"]
@@ -282,3 +285,11 @@ shape = SubResource("BoxShape3D_pwg0c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="world/Joint_testing/StaticBody3D"]
 mesh = SubResource("BoxMesh_tfng2")
+
+[node name="death_detector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
+
+[node name="death_collider" type="CollisionShape3D" parent="death_detector"]
+shape = SubResource("BoxShape3D_k44vx")
+
+[connection signal="area_entered" from="death_detector" to="Player" method="_on_death_detector_area_entered"]
