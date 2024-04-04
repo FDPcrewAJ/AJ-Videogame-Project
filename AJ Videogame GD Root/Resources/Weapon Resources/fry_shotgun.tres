@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="weapons_resource" load_steps=2 format=3 uid="uid://cniolbjqda6aw"]
+
+[ext_resource type="Script" path="res://Scripts/weapons_resource.gd" id="1_jj6ci"]
+
+[resource]
+script = ExtResource("1_jj6ci")
+weapon_name = "fry_shotgun"
+current_ammo = 5
+magazine = 5

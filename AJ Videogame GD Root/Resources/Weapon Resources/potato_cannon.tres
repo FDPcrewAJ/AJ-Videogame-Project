@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="weapons_resource" load_steps=2 format=3 uid="uid://cgo6lsokt56fp"]
+
+[ext_resource type="Script" path="res://Scripts/weapons_resource.gd" id="1_3j5ku"]
+
+[resource]
+script = ExtResource("1_3j5ku")
+weapon_name = "potato_cannon"
+current_ammo = 1
+magazine = 1
