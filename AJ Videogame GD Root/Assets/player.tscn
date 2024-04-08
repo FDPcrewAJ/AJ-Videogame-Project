@@ -1,13 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=18 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
 [ext_resource type="PackedScene" uid="uid://brgx0q665pc8p" path="res://Assets/knife.tscn" id="2_rl7at"]
 [ext_resource type="Script" path="res://Scripts/weapon_manager.gd" id="2_u8527"]
 [ext_resource type="PackedScene" uid="uid://ciu2heutvdiua" path="res://Imports/temp potato cannon/temp_potato_cannon.glb" id="3_7o1mt"]
+[ext_resource type="Resource" uid="uid://cr0kkcwqa6xw0" path="res://Resources/Weapon Resources/grappling_gun.tres" id="3_yorxt"]
+[ext_resource type="Resource" uid="uid://xyvs0du3j3cq" path="res://Resources/Weapon Resources/throwing_knife.tres" id="4_7tv2r"]
 [ext_resource type="PackedScene" uid="uid://bi4qvl7xsrc8w" path="res://Imports/temp shotgun/temp_shotgun.glb" id="4_j38vk"]
 [ext_resource type="PackedScene" uid="uid://fpvy554lb0md" path="res://Imports/temp mg/temp_machine_gun.glb" id="5_ccppv"]
+[ext_resource type="Resource" uid="uid://cniolbjqda6aw" path="res://Resources/Weapon Resources/fry_shotgun.tres" id="5_u6og4"]
 [ext_resource type="PackedScene" uid="uid://nqt6o4mxust3" path="res://Imports/temp grappling gun/temp_grappling_gun.glb" id="6_6fp6b"]
+[ext_resource type="Resource" uid="uid://cgo6lsokt56fp" path="res://Resources/Weapon Resources/potato_cannon.tres" id="6_idb32"]
+[ext_resource type="Resource" uid="uid://b5w51fvtqxo8" path="res://Resources/Weapon Resources/rotary_mg.tres" id="7_i40mb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
@@ -54,6 +59,8 @@ target_position = Vector3(0, 0, -500)
 [node name="weapon_manager" type="Node3D" parent="neck/head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555852, -0.66727, -0.924067)
 script = ExtResource("2_u8527")
+_weapon_resources = Array[Resource("res://Scripts/weapons_resource.gd")]([ExtResource("3_yorxt"), ExtResource("4_7tv2r"), ExtResource("5_u6og4"), ExtResource("6_idb32"), ExtResource("7_i40mb")])
+start_weapons = Array[String](["grappling_gun", "throwing_knife"])
 
 [node name="knife_holder" type="Node3D" parent="neck/head/weapon_manager"]
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 0.000384748, -0.0168746, 0.234583)

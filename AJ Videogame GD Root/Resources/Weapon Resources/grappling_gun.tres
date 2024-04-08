@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="weapons_resource" load_steps=2 format=3 uid="uid://cr0kkcwqa6xw0"]
+
+[ext_resource type="Script" path="res://Scripts/weapons_resource.gd" id="1_67ib1"]
+
+[resource]
+script = ExtResource("1_67ib1")
+weapon_name = ""
+current_ammo = 1
+magazine = 1
