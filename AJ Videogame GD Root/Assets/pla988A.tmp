@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=21 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
@@ -21,40 +21,24 @@ height = 1.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hytrv"]
 
-[sub_resource type="Animation" id="Animation_byqi1"]
+[sub_resource type="Animation" id="Animation_y36je"]
 resource_name = "knife_activate"
-length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_eno50"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(0.000384748, -0.0168746, 0.234583)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../cannon_holder:visible")
+tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -63,200 +47,38 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../shotgun_holder:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+
+[sub_resource type="Animation" id="Animation_bra1x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(0.000384748, -0.0168746, 0.234583)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../mg_holder:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../grap_gun_holder:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_i0h1n"]
-resource_name = "knife_deactivate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_r67xx"]
-resource_name = "cannon_activate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../cannon_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_mwghh"]
-resource_name = "cannon_deactivate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../cannon_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_q8f1e"]
-resource_name = "shotgun_activate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../shotgun_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_cwson"]
-resource_name = "shotgun_deactivate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../shotgun_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_dpye2"]
-resource_name = "mg_activate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../mg_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_8bfvd"]
-resource_name = "mg_deactivate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../mg_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_rly6r"]
-resource_name = "grap_gun_activate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../grap_gun_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_dhnmx"]
-resource_name = "grap_gun_deactivate"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../grap_gun_holder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_enh68"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_815i3"]
 _data = {
-"RESET": SubResource("Animation_eno50"),
-"cannon_activate": SubResource("Animation_r67xx"),
-"cannon_deactivate": SubResource("Animation_mwghh"),
-"grap_gun_activate": SubResource("Animation_rly6r"),
-"grap_gun_deactivate": SubResource("Animation_dhnmx"),
-"knife_activate": SubResource("Animation_byqi1"),
-"knife_deactivate": SubResource("Animation_i0h1n"),
-"mg_activate": SubResource("Animation_dpye2"),
-"mg_deactivate": SubResource("Animation_8bfvd"),
-"shotgun_activate": SubResource("Animation_q8f1e"),
-"shotgun_deactivate": SubResource("Animation_cwson")
+"RESET": SubResource("Animation_bra1x"),
+"knife_activate": SubResource("Animation_y36je")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6k5qs"]
@@ -295,7 +117,7 @@ target_position = Vector3(0, 0, -60)
 target_position = Vector3(0, 0, -500)
 
 [node name="weapon_manager" type="Node3D" parent="neck/head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555852, -0.66727, -0.924067)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)
 script = ExtResource("2_u8527")
 _weapon_resources = Array[Resource("res://Scripts/weapons_resource.gd")]([ExtResource("3_yorxt"), ExtResource("4_7tv2r"), ExtResource("5_u6og4"), ExtResource("6_idb32"), ExtResource("7_i40mb")])
 start_weapons = Array[String](["grappling_gun", "throwing_knife"])
@@ -333,11 +155,10 @@ visible = false
 
 [node name="temp_grappling_gun" parent="neck/head/weapon_manager/grap_gun_holder" instance=ExtResource("6_6fp6b")]
 
-[node name="animation_player" type="AnimationPlayer" parent="neck/head/weapon_manager"]
-unique_name_in_owner = true
+[node name="weapon_animations" type="AnimationPlayer" parent="neck/head/weapon_manager"]
 root_node = NodePath("../knife_holder")
 libraries = {
-"": SubResource("AnimationLibrary_enh68")
+"": SubResource("AnimationLibrary_815i3")
 }
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
@@ -397,4 +218,3 @@ width = 2.5
 [node name="scene_switch" parent="." instance=ExtResource("2_1b7xy")]
 
 [connection signal="timeout" from="neck/head/weapon_manager/knife_holder/knife_timer" to="." method="_on_knife_timer_timeout"]
-[connection signal="animation_finished" from="neck/head/weapon_manager/animation_player" to="neck/head/weapon_manager" method="_on_animation_player_animation_finished"]

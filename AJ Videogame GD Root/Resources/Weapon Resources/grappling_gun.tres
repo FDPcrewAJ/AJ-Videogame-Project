@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_67ib1")
-weapon_name = ""
+weapon_name = "grappling_gun"
+activate_anim = "grap_gun_activate"
+deactivate_anim = "grap_gun_deactivate"
 current_ammo = 1
 magazine = 1

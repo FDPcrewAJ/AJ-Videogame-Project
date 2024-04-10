@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource("1_jj6ci")
 weapon_name = "fry_shotgun"
+activate_anim = "shotgun_activate"
+deactivate_anim = "shotgun_deactivate"
 current_ammo = 5
 magazine = 5
