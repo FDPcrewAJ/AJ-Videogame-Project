@@ -18,7 +18,10 @@ var weapon_list = {}
 func _ready():
 	initialize(start_weapons)
 
-
+func _physics_process(_delta):
+		if Input.is_action_pressed("shoot"):
+			shoot()
+	
 func _input(event):
 	if event.is_action_pressed("next_weapon"):
 		weapon_indicator = min(weapon_indicator + 1, weapon_stack.size() - 1)
@@ -27,9 +30,6 @@ func _input(event):
 	if event.is_action_pressed("prev_weapon"):
 		weapon_indicator = max(weapon_indicator - 1, 0)
 		exit(weapon_stack[weapon_indicator])
-	
-	if event.is_action_pressed("shoot"):
-		shoot()
 	
 	if event.is_action_pressed("reload"):
 		reload()
@@ -78,8 +78,19 @@ func _on_animation_player_animation_finished(anim_name):
 
 
 func shoot():
-	animation_player.play(current_weapon.shoot_anim)
+	if current_weapon.current_ammo != 0:
+		if !animation_player.is_playing():
+			# Inforces fire rate set by the animation
+			animation_player.play(current_weapon.shoot_anim)
+			current_weapon.current_ammo -= 1
+			emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
 
 
 func reload():
-	animation_player.play(current_weapon.reload_anim)
+	if current_weapon.current_ammo == current_weapon.magazine:
+		return
+	elif !animation_player.is_playing():
+		animation_player.play(current_weapon.reload_anim)
+		var reload_amount = current_weapon.magazine - current_weapon.current_ammo
+		current_weapon.current_ammo = current_weapon.current_ammo + reload_amount
+		emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])

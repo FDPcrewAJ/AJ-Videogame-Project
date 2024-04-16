@@ -628,7 +628,7 @@ target_position = Vector3(0, 0, -500)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555852, -0.66727, -0.924067)
 script = ExtResource("2_u8527")
 _weapon_resources = Array[Resource("res://Scripts/weapons_resource.gd")]([ExtResource("3_yorxt"), ExtResource("4_7tv2r"), ExtResource("5_u6og4"), ExtResource("6_idb32"), ExtResource("7_i40mb")])
-start_weapons = Array[String](["grappling_gun", "throwing_knife"])
+start_weapons = Array[String](["grappling_gun", "throwing_knife", "potato_cannon", "fry_shotgun", "rotary_mg"])
 
 [node name="knife_holder" type="Node3D" parent="neck/head/weapon_manager"]
 transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 0.000384748, -0.0168746, 0.234583)
