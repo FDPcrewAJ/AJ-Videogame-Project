@@ -1,5 +1,9 @@
 extends Node3D
 
+signal weapon_changed
+signal update_ammo
+signal update_weapon_stack
+
 @onready var animation_player = $animation_player
 
 var current_weapon = null
@@ -23,6 +27,12 @@ func _input(event):
 	if event.is_action_pressed("prev_weapon"):
 		weapon_indicator = max(weapon_indicator - 1, 0)
 		exit(weapon_stack[weapon_indicator])
+	
+	if event.is_action_pressed("shoot"):
+		shoot()
+	
+	if event.is_action_pressed("reload"):
+		reload()
 
 
 func initialize(_start_weapons: Array):
@@ -34,12 +44,17 @@ func initialize(_start_weapons: Array):
 		weapon_stack.push_back(i)
 	
 	current_weapon = weapon_list[weapon_stack[0]]
+	
+	emit_signal("update_weapon_stack", weapon_stack)
 	enter()
 
 
 func enter():
 	#Call when you switch to a weapon
 	animation_player.queue(current_weapon.activate_anim)
+	
+	emit_signal("weapon_changed", current_weapon.weapon_name)
+	emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
 
 
 func change_weapon(weapon_name: String):
@@ -60,3 +75,11 @@ func exit(_next_weapon: String):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == current_weapon.deactivate_anim:
 		change_weapon(next_weapon)
+
+
+func shoot():
+	animation_player.play(current_weapon.shoot_anim)
+
+
+func reload():
+	animation_player.play(current_weapon.reload_anim)

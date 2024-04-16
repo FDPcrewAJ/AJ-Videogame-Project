@@ -7,5 +7,7 @@ script = ExtResource("1_a7oc4")
 weapon_name = "throwing_knife"
 activate_anim = "knife_activate"
 deactivate_anim = "knife_deactivate"
+shoot_anim = "knife_shoot"
+reload_anim = "knife_reload"
 current_ammo = 1
 magazine = 1

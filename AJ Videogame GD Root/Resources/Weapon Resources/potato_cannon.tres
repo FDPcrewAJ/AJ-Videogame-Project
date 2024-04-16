@@ -7,5 +7,7 @@ script = ExtResource("1_3j5ku")
 weapon_name = "potato_cannon"
 activate_anim = "cannon_activate"
 deactivate_anim = "cannon_deactivate"
+shoot_anim = "cannon_shoot"
+reload_anim = "cannon_reload"
 current_ammo = 1
 magazine = 1

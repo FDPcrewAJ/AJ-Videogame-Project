@@ -191,7 +191,7 @@ func _physics_process(delta):
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
 	#grapple(delta)
-	throw_knife()
+	#throw_knife()
 	move_and_slide()
 
 

@@ -7,5 +7,7 @@ script = ExtResource("1_67ib1")
 weapon_name = "grappling_gun"
 activate_anim = "grap_gun_activate"
 deactivate_anim = "grap_gun_deactivate"
+shoot_anim = "grap_gun_shoot"
+reload_anim = "grap_gun_reload"
 current_ammo = 1
 magazine = 1

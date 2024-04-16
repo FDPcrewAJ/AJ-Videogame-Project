@@ -7,5 +7,7 @@ script = ExtResource("1_ttg2v")
 weapon_name = "rotary_mg"
 activate_anim = "mg_activate"
 deactivate_anim = "mg_deactivate"
+shoot_anim = "mg_shoot"
+reload_anim = "mg_shoot"
 current_ammo = 25
 magazine = 25
