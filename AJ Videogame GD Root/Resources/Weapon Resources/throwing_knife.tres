@@ -11,3 +11,4 @@ shoot_anim = "knife_shoot"
 reload_anim = "knife_reload"
 current_ammo = 1
 magazine = 1
+auto_reload = true

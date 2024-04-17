@@ -10,3 +10,4 @@ class_name weapons_resource
 
 @export var current_ammo: int
 @export var magazine: int
+@export var auto_reload: bool

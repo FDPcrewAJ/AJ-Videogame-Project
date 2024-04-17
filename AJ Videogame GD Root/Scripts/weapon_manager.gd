@@ -84,7 +84,8 @@ func shoot():
 			animation_player.play(current_weapon.shoot_anim)
 			current_weapon.current_ammo -= 1
 			emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
-
+			if current_weapon.auto_reload == true:
+				reload()
 
 func reload():
 	if current_weapon.current_ammo == current_weapon.magazine:
@@ -94,3 +95,4 @@ func reload():
 		var reload_amount = current_weapon.magazine - current_weapon.current_ammo
 		current_weapon.current_ammo = current_weapon.current_ammo + reload_amount
 		emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
+		print("reloaded")
