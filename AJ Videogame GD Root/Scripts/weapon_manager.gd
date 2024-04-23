@@ -75,6 +75,8 @@ func exit(_next_weapon: String):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == current_weapon.deactivate_anim:
 		change_weapon(next_weapon)
+	if current_weapon.current_ammo == 0 and current_weapon.auto_reload == true:
+		reload()
 
 
 func shoot():
@@ -84,15 +86,12 @@ func shoot():
 			animation_player.play(current_weapon.shoot_anim)
 			current_weapon.current_ammo -= 1
 			emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
-			if current_weapon.auto_reload == true:
-				reload()
+
 
 func reload():
 	if current_weapon.current_ammo == current_weapon.magazine:
 		return
 	elif !animation_player.is_playing():
 		animation_player.play(current_weapon.reload_anim)
-		var reload_amount = current_weapon.magazine - current_weapon.current_ammo
-		current_weapon.current_ammo = current_weapon.current_ammo + reload_amount
+		current_weapon.current_ammo = current_weapon.magazine
 		emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
-		print("reloaded")

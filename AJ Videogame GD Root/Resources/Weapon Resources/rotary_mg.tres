@@ -11,4 +11,4 @@ shoot_anim = "mg_shoot"
 reload_anim = "mg_reload"
 current_ammo = 25
 magazine = 25
-auto_reload = true
+auto_reload = false
