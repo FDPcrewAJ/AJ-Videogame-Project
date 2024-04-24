@@ -1,11 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=42 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
 [ext_resource type="Script" path="res://Scripts/weapon_hud.gd" id="2_8ypol"]
 [ext_resource type="PackedScene" uid="uid://brgx0q665pc8p" path="res://Assets/knife.tscn" id="2_rl7at"]
 [ext_resource type="Script" path="res://Scripts/weapon_manager.gd" id="2_u8527"]
-[ext_resource type="PackedScene" uid="uid://ciu2heutvdiua" path="res://Imports/temp potato cannon/temp_potato_cannon.glb" id="3_7o1mt"]
 [ext_resource type="Resource" uid="uid://cr0kkcwqa6xw0" path="res://Resources/Weapon Resources/grappling_gun.tres" id="3_yorxt"]
 [ext_resource type="Resource" uid="uid://xyvs0du3j3cq" path="res://Resources/Weapon Resources/throwing_knife.tres" id="4_7tv2r"]
 [ext_resource type="PackedScene" uid="uid://bi4qvl7xsrc8w" path="res://Imports/temp shotgun/temp_shotgun.glb" id="4_j38vk"]
@@ -14,13 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://nqt6o4mxust3" path="res://Imports/temp grappling gun/temp_grappling_gun.glb" id="6_6fp6b"]
 [ext_resource type="Resource" uid="uid://cgo6lsokt56fp" path="res://Resources/Weapon Resources/potato_cannon.tres" id="6_idb32"]
 [ext_resource type="Resource" uid="uid://b5w51fvtqxo8" path="res://Resources/Weapon Resources/rotary_mg.tres" id="7_i40mb"]
+[ext_resource type="PackedScene" uid="uid://bkj7rmwi7piji" path="res://Imports/potato_cannon/potato_cannon.glb" id="10_0keih"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_818dt"]
 height = 1.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmf70"]
+albedo_color = Color(0.717647, 0.572549, 0.407843, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hytrv"]
+material = SubResource("StandardMaterial3D_vmf70")
 
 [sub_resource type="Animation" id="Animation_eno50"]
 length = 0.001
@@ -644,7 +648,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417013, 0.00232923, 0)
 [node name="cannon_holder" type="Node3D" parent="neck/head/weapon_manager"]
 visible = false
 
-[node name="temp_potato_cannon" parent="neck/head/weapon_manager/cannon_holder" instance=ExtResource("3_7o1mt")]
+[node name="potato_cannon" parent="neck/head/weapon_manager/cannon_holder" instance=ExtResource("10_0keih")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -0.587754)
 
 [node name="shotgun_holder" type="Node3D" parent="neck/head/weapon_manager"]

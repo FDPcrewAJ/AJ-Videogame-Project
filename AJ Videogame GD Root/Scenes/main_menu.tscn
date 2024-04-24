@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cm55hroicd0n0"]
+[gd_scene load_steps=22 format=3 uid="uid://cm55hroicd0n0"]
 
 [ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="1_jk2f8"]
 [ext_resource type="Script" path="res://Scripts/rotate_menu.gd" id="2_a2h1c"]
 [ext_resource type="Texture2D" uid="uid://1nvltga4emg0" path="res://Textures/Prototype Textures/Dark/texture_07.png" id="2_p2ene"]
 [ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="4_s7fq2"]
+[ext_resource type="PackedScene" uid="uid://b0eo2ay8svpw0" path="res://Imports/knife/knife.glb" id="5_k8phc"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="5_rbdqq"]
 [ext_resource type="PackedScene" uid="uid://bekrnanblaq83" path="res://Scenes/main_menu_ui.tscn" id="6_lqyax"]
 
@@ -31,7 +32,11 @@ uv1_triplanar = true
 material = SubResource("StandardMaterial3D_uclc7")
 size = Vector3(0.499, 2, 0.499)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64e87"]
+albedo_color = Color(0.717647, 0.572549, 0.407843, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2jlep"]
+material = SubResource("StandardMaterial3D_64e87")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ss7"]
 albedo_color = Color(0.658824, 0.258824, 0.176471, 1)
@@ -88,6 +93,11 @@ mesh = SubResource("BoxMesh_ml3jo")
 [node name="Player" type="MeshInstance3D" parent="menu_panorama"]
 transform = Transform3D(0.939298, 0.343102, 0, -0.334432, 0.915562, -0.223386, -0.0766444, 0.209826, 0.97473, -2.6599, 3.09901, -2.92176)
 mesh = SubResource("CapsuleMesh_2jlep")
+
+[node name="weapon_holder" type="Node3D" parent="menu_panorama/Player"]
+
+[node name="knife" parent="menu_panorama/Player/weapon_holder" instance=ExtResource("5_k8phc")]
+transform = Transform3D(-0.79693, -0.101838, 0.595428, -0.113432, 0.993382, 0.0180825, -0.593329, -0.0531302, -0.803208, 0.13269, -0.0713959, 0.940394)
 
 [node name="enemies" type="Node3D" parent="menu_panorama"]
 
