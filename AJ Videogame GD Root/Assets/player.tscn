@@ -7,13 +7,13 @@
 [ext_resource type="Script" path="res://Scripts/weapon_manager.gd" id="2_u8527"]
 [ext_resource type="Resource" uid="uid://cr0kkcwqa6xw0" path="res://Resources/Weapon Resources/grappling_gun.tres" id="3_yorxt"]
 [ext_resource type="Resource" uid="uid://xyvs0du3j3cq" path="res://Resources/Weapon Resources/throwing_knife.tres" id="4_7tv2r"]
-[ext_resource type="PackedScene" uid="uid://bi4qvl7xsrc8w" path="res://Imports/temp shotgun/temp_shotgun.glb" id="4_j38vk"]
 [ext_resource type="PackedScene" uid="uid://fpvy554lb0md" path="res://Imports/temp mg/temp_machine_gun.glb" id="5_ccppv"]
 [ext_resource type="Resource" uid="uid://cniolbjqda6aw" path="res://Resources/Weapon Resources/fry_shotgun.tres" id="5_u6og4"]
 [ext_resource type="PackedScene" uid="uid://nqt6o4mxust3" path="res://Imports/temp grappling gun/temp_grappling_gun.glb" id="6_6fp6b"]
 [ext_resource type="Resource" uid="uid://cgo6lsokt56fp" path="res://Resources/Weapon Resources/potato_cannon.tres" id="6_idb32"]
 [ext_resource type="Resource" uid="uid://b5w51fvtqxo8" path="res://Resources/Weapon Resources/rotary_mg.tres" id="7_i40mb"]
 [ext_resource type="PackedScene" uid="uid://bkj7rmwi7piji" path="res://Imports/potato_cannon/potato_cannon.glb" id="10_0keih"]
+[ext_resource type="PackedScene" uid="uid://bkdgrhivvp1qe" path="res://Imports/fry shotgun/french_fry_shotgun.glb" id="15_q0a40"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
@@ -208,6 +208,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../bullet_point:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.03321)]
+}
 
 [sub_resource type="Animation" id="Animation_r67xx"]
 resource_name = "cannon_activate"
@@ -223,6 +235,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../bullet_point:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.03321)]
 }
 
 [sub_resource type="Animation" id="Animation_mwghh"]
@@ -288,6 +312,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../bullet_point:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.518895)]
+}
 
 [sub_resource type="Animation" id="Animation_dhnmx"]
 resource_name = "grap_gun_deactivate"
@@ -351,6 +387,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../bullet_point:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.540878)]
 }
 
 [sub_resource type="Animation" id="Animation_i0h1n"]
@@ -416,6 +464,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../bullet_point:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.848643)]
+}
 
 [sub_resource type="Animation" id="Animation_8bfvd"]
 resource_name = "mg_deactivate"
@@ -480,6 +540,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../bullet_point:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0219831, -0.14289, -1.17289)]
 }
 
 [sub_resource type="Animation" id="Animation_cwson"]
@@ -654,8 +726,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 [node name="shotgun_holder" type="Node3D" parent="neck/head/weapon_manager"]
 visible = false
 
-[node name="temp_shotgun" parent="neck/head/weapon_manager/shotgun_holder" instance=ExtResource("4_j38vk")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0577219, -0.302753)
+[node name="french_fry_shotgun" parent="neck/head/weapon_manager/shotgun_holder" instance=ExtResource("15_q0a40")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0139379, -0.205727, -0.198304)
 
 [node name="mg_holder" type="Node3D" parent="neck/head/weapon_manager"]
 visible = false
@@ -674,6 +746,10 @@ root_node = NodePath("../knife_holder")
 libraries = {
 "": SubResource("AnimationLibrary_enh68")
 }
+
+[node name="bullet_point" type="Marker3D" parent="neck/head/weapon_manager"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.03321)
 
 [node name="checkpoint_detector" type="Area3D" parent="."]
 

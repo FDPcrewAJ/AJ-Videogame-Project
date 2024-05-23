@@ -12,3 +12,6 @@ reload_anim = "cannon_reload"
 current_ammo = 1
 magazine = 1
 auto_reload = true
+type = 2
+weapon_range = 2000
+damage = 1

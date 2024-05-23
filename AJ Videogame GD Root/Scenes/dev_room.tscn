@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckfbil3wmgs7p"]
+[gd_scene load_steps=22 format=3 uid="uid://ckfbil3wmgs7p"]
 
 [ext_resource type="PackedScene" uid="uid://cig5bv4l3apst" path="res://Scenes/controls.tscn" id="1_1b8s2"]
 [ext_resource type="PackedScene" uid="uid://cy7hnsibedn0j" path="res://Assets/player.tscn" id="2_cfpsl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://biotaa1ke6tpc" path="res://Textures/Prototype Textures/Purple/texture_07.png" id="7_xcnug"]
 [ext_resource type="Texture2D" uid="uid://rrowbell0tnx" path="res://Textures/Prototype Textures/Red/texture_04.png" id="8_gpo7l"]
 [ext_resource type="Texture2D" uid="uid://d0n0jnjvvvr6i" path="res://Textures/Prototype Textures/Dark/texture_03.png" id="9_dsb2g"]
+[ext_resource type="PackedScene" uid="uid://dv20yes6ts7au" path="res://Assets/enemy.tscn" id="10_d7q1g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4685"]
 albedo_texture = ExtResource("5_r6rxk")
@@ -291,5 +292,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
 
 [node name="death_collider" type="CollisionShape3D" parent="death_detector"]
 shape = SubResource("BoxShape3D_k44vx")
+
+[node name="enemies_holder" type="Node3D" parent="."]
+
+[node name="Enemy" parent="enemies_holder" instance=ExtResource("10_d7q1g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.0204, 0, -10.4379)
+
+[node name="Enemy2" parent="enemies_holder" instance=ExtResource("10_d7q1g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.0204, 0, -4.0491)
+
+[node name="Enemy3" parent="enemies_holder" instance=ExtResource("10_d7q1g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.0204, 0, 3.97884)
+
+[node name="Enemy4" parent="enemies_holder" instance=ExtResource("10_d7q1g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.0204, 0, 14.1583)
+
+[node name="Enemy5" parent="enemies_holder" instance=ExtResource("10_d7q1g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.0204, 0, -19.0059)
 
 [connection signal="area_entered" from="death_detector" to="Player" method="_on_death_detector_area_entered"]

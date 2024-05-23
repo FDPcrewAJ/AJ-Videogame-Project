@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv20yes6ts7au"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ss7"]
+albedo_color = Color(0.658824, 0.258824, 0.176471, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0720w"]
+material = SubResource("StandardMaterial3D_t4ss7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2g11"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sinvs"]
+material = SubResource("StandardMaterial3D_k2g11")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_1i4ej"]
+radius = 0.025
+height = 0.05
+
+[node name="Enemy" type="Node3D"]
+
+[node name="body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00588, 0)
+mesh = SubResource("CapsuleMesh_0720w")
+
+[node name="eye_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, 0.219427)
+mesh = SubResource("SphereMesh_sinvs")
+skeleton = NodePath("../body")
+
+[node name="eye_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, -0.23924)
+mesh = SubResource("SphereMesh_sinvs")
+skeleton = NodePath("../body")
+
+[node name="mouth" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.998135, 0, 0.129728, 0, 2.54, 0, -0.0610485, 0, 2.12104, 0.475093, 1.16227, 0)
+mesh = SubResource("SphereMesh_sinvs")
+skeleton = NodePath("../body")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.5222, 0.235435)
+mesh = SubResource("SphereMesh_1i4ej")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.53232, -0.255555)
+mesh = SubResource("SphereMesh_1i4ej")

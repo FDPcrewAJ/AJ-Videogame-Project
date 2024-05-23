@@ -11,3 +11,7 @@ shoot_anim = "shotgun_shoot"
 reload_anim = "shotgun_reload"
 current_ammo = 5
 magazine = 5
+auto_reload = false
+type = 1
+weapon_range = 2000
+damage = 1
