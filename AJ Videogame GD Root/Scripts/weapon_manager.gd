@@ -7,6 +7,8 @@ signal update_weapon_stack
 @onready var animation_player = get_node("%animation_player")
 @onready var bullet_point = get_node("%bullet_point")
 
+var bullet_marker = preload("res://Assets/bullet_marker.tscn")
+
 var current_weapon = null
 var weapon_stack = []
 var weapon_indicator = 0
@@ -94,7 +96,7 @@ func shoot():
 				NULL:
 					print("Weapon Type Not Chosen")
 				HITSCAN:
-					pass
+					hit_scan_collision(camera_collision)
 				PROJECTILE:
 					pass
 
@@ -119,25 +121,30 @@ func get_camera_collision() -> Vector3:
 	var intersection = get_world_3d().direct_space_state.intersect_ray(new_intersection)
 	
 	if not intersection.is_empty():
-		var col_point = intersection.position()
+		var col_point = intersection.position
 		return col_point
 	else:
 		return ray_end
 
 
 func hit_scan_collision(collision_point):
-	var bullet_direction = (collision_point - bullet_point.get_global_transform().origin).normalize()
+	var bullet_direction = (collision_point - bullet_point.get_global_transform().origin).normalized()
 	var new_intersection = PhysicsRayQueryParameters3D.create(bullet_point.get_global_transform().origin, collision_point + bullet_direction * 2)
 	
 	var bullet_collision = get_world_3d().direct_space_state.intersect_ray(new_intersection)
 	
 	if bullet_collision:
-		hit_Scan_damage()
+		var hit_indicator = bullet_marker.instantiate()
+		var world = get_tree().get_root()
+		world.add_child(hit_indicator)
+		hit_indicator.global_translate(bullet_collision.position)
+		
+		hit_Scan_damage(bullet_collision.collider)
 
 
-func hit_Scan_damage():
-	print("Hitscan Damage")
-
+func hit_Scan_damage(collider):
+	if collider.is_in_group("target") and collider.has_method("hit_successful"):
+		collider.hit_successful(current_weapon.damage) 
 
 
 

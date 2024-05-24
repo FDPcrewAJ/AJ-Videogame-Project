@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cui4s0fjqos13"]
+
+[ext_resource type="Texture2D" uid="uid://ddjwkkbeerjx2" path="res://Imports/hit_marker.png" id="1_5k6u3"]
+[ext_resource type="Script" path="res://Scripts/bullet_marker.gd" id="2_ltuej"]
+
+[node name="bullet_marker" type="Sprite3D"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+billboard = 2
+texture = ExtResource("1_5k6u3")
+script = ExtResource("2_ltuej")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

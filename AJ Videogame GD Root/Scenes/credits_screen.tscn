@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://djm2gfjyq4vmg"]
 
-[ext_resource type="Script" path="res://Scenes/credits_script.gd" id="1_jbsit"]
+[ext_resource type="Script" path="res://Scripts/credits_script.gd" id="1_jbsit"]
 [ext_resource type="FontFile" uid="uid://bj4dssu7l6lx7" path="res://Fonts/Itim/Itim-Regular.ttf" id="2_j5h0i"]
 [ext_resource type="FontFile" uid="uid://dybhj5pc8e0n1" path="res://Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="3_vh4ch"]
 
