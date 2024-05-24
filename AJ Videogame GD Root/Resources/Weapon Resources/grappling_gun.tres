@@ -12,6 +12,6 @@ reload_anim = "grap_gun_reload"
 current_ammo = 1
 magazine = 1
 auto_reload = true
-type = 1
+type = null
 weapon_range = 2000
 damage = 1

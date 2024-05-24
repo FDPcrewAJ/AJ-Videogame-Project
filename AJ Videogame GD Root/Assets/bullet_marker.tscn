@@ -10,6 +10,7 @@ texture = ExtResource("1_5k6u3")
 script = ExtResource("2_ltuej")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

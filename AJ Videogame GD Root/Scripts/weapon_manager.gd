@@ -135,7 +135,7 @@ func hit_scan_collision(collision_point):
 	
 	if bullet_collision:
 		var hit_indicator = bullet_marker.instantiate()
-		var world = get_tree().get_root()
+		var world = get_tree().get_root().get_child(0)
 		world.add_child(hit_indicator)
 		hit_indicator.global_translate(bullet_collision.position)
 		
