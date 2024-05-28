@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="weapons_resource" load_steps=2 format=3 uid="uid://cgo6lsokt56fp"]
+[gd_resource type="Resource" script_class="weapons_resource" load_steps=3 format=3 uid="uid://cgo6lsokt56fp"]
 
 [ext_resource type="Script" path="res://Scripts/weapons_resource.gd" id="1_3j5ku"]
+[ext_resource type="PackedScene" uid="uid://c062epdbhnd4n" path="res://Assets/potato_bullet.tscn" id="1_pykyn"]
 
 [resource]
 script = ExtResource("1_3j5ku")
@@ -15,3 +16,5 @@ auto_reload = true
 type = 2
 weapon_range = 2000
 damage = 1
+projectile_to_load = ExtResource("1_pykyn")
+projectile_veloity = 100

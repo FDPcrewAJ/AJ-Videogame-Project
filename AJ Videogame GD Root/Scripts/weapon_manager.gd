@@ -20,6 +20,8 @@ var weapon_list = {}
 
 enum {NULL, HITSCAN, PROJECTILE}
 
+var collision_exclusion = []
+
 func _ready():
 	initialize(start_weapons)
 
@@ -98,7 +100,7 @@ func shoot():
 				HITSCAN:
 					hit_scan_collision(camera_collision)
 				PROJECTILE:
-					pass
+					launch_projectile(camera_collision)
 
 
 func reload():
@@ -118,6 +120,7 @@ func get_camera_collision() -> Vector3:
 	var ray_end = ray_origin + camera.project_ray_normal(viewport / 2) * current_weapon.weapon_range
 	
 	var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin,ray_end)
+	new_intersection.set_exclude(collision_exclusion)
 	var intersection = get_world_3d().direct_space_state.intersect_ray(new_intersection)
 	
 	if not intersection.is_empty():
@@ -147,8 +150,18 @@ func hit_Scan_damage(collider):
 		collider.hit_successful(current_weapon.damage) 
 
 
+func launch_projectile(point: Vector3):
+	var direction = (point - bullet_point.get_global_transform().origin).normalized()
+	var projectile = current_weapon.projectile_to_load.instantiate()
+	
+	var projectile_rid = projectile.get_rid()
+	collision_exclusion.push_front(projectile_rid)
+	projectile.tree_exited.connect(remove_exclusion.bind(projectile.get_rid()))
+	
+	bullet_point.add_child(projectile)
+	projectile.damage = current_weapon.damage
+	projectile.set_linear_velocity(direction * current_weapon.projectile_veloity)
 
 
-
-
-
+func remove_exclusion(projectile_rid):
+	collision_exclusion.erase(projectile_rid)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c062epdbhnd4n"]
+
+[ext_resource type="Script" path="res://Scripts/potato_bullet.gd" id="1_4mtm7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xamv"]
+albedo_color = Color(0.717647, 0.572549, 0.407843, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0nonr"]
+material = SubResource("StandardMaterial3D_5xamv")
+radius = 0.1
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b7ja"]
+radius = 0.142845
+height = 0.555947
+
+[node name="potato_bullet" type="RigidBody3D"]
+top_level = true
+collision_layer = 4
+collision_mask = 5
+mass = 0.1
+continuous_cd = true
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_4mtm7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -1.77636e-15, -2.98023e-08, 1, 8.74228e-08, 1, 2.98023e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_0nonr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0b7ja")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
