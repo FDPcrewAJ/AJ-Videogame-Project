@@ -197,3 +197,8 @@ func _physics_process(delta):
 
 func _on_death_detector_area_entered(_area):
 	global_position = global.check_point_pos
+
+
+func _on_weapon_manager_use_grapple():
+	grapple(get_process_delta_time())
+	print("called grapple function")

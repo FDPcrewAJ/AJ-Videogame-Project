@@ -3,6 +3,7 @@ extends Node3D
 signal weapon_changed
 signal update_ammo
 signal update_weapon_stack
+signal use_grapple
 
 @onready var animation_player = get_node("%animation_player")
 @onready var bullet_point = get_node("%bullet_point")
@@ -18,7 +19,7 @@ var weapon_list = {}
 @export var _weapon_resources: Array[weapons_resource]
 @export var start_weapons: Array[String]
 
-enum {NULL, HITSCAN, PROJECTILE}
+enum {Null, Hitscan, Projectile, Grapple}
 
 var collision_exclusion = []
 
@@ -94,13 +95,22 @@ func shoot():
 			current_weapon.current_ammo -= 1
 			emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
 			var camera_collision = get_camera_collision()
+			
+			if current_weapon.type == Grapple:
+				print("If statement worked")
+			
 			match current_weapon.type:
-				NULL:
+				Null:
 					print("Weapon Type Not Chosen")
-				HITSCAN:
+				Hitscan:
 					hit_scan_collision(camera_collision)
-				PROJECTILE:
+					print("Hitscan")
+				Projectile:
 					launch_projectile(camera_collision)
+					print("Projectile")
+				Grapple:
+					emit_signal("use_grapple")
+					print("got through match statement")
 
 
 func reload():
