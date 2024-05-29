@@ -15,7 +15,7 @@ radius = 0.142845
 height = 0.555947
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_34uo8"]
-radius = 2.0
+radius = 3.0
 
 [node name="potato_bullet" type="RigidBody3D"]
 top_level = true

@@ -29,7 +29,7 @@ size = Vector3(0.025, 0.145, 0.035)
 radius = 0.025
 height = 0.05
 
-[node name="Enemy" type="Node3D"]
+[node name="Enemy" type="Node3D" groups=["target"]]
 
 [node name="enemy_holder" type="RigidBody3D" parent="." groups=["target"]]
 collision_layer = 4
