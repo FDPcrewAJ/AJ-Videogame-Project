@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c062epdbhnd4n"]
+[gd_scene load_steps=6 format=3 uid="uid://c062epdbhnd4n"]
 
 [ext_resource type="Script" path="res://Scripts/potato_bullet.gd" id="1_4mtm7"]
 
@@ -13,6 +13,9 @@ height = 0.4
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0b7ja"]
 radius = 0.142845
 height = 0.555947
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_34uo8"]
+radius = 2.0
 
 [node name="potato_bullet" type="RigidBody3D"]
 top_level = true
@@ -36,6 +39,11 @@ shape = SubResource("CapsuleShape3D_0b7ja")
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="explosion_radius" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_34uo8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

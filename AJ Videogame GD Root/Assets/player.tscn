@@ -629,7 +629,7 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6k5qs"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["grenade"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_1plui")
 
