@@ -61,24 +61,21 @@ theme_override_fonts/font = ExtResource("3_vh4ch")
 theme_override_font_sizes/font_size = 90
 text = "Credits"
 
-[node name="filler" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -666.0
-offset_top = 57.0
-offset_right = 658.0
-offset_bottom = 243.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.218224
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -502.0
+offset_top = -250.0
+offset_right = 524.0
+offset_bottom = 227.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_vh4ch")
-theme_override_font_sizes/font_size = 141
-text = "Nothing Ready Yet!"
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_j5h0i")
+theme_override_font_sizes/font_size = 56
+text = "Movement Tutorial From: 
+	Lukky (Youtube Series)
+Weapons Manager Tutorial From:
+	Chaff Games (Youtube Series)
+Original Grappling hook tutorial from:
+	Garbah (Youtube Video)"
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

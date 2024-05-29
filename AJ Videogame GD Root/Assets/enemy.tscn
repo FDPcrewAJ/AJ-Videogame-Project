@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv20yes6ts7au"]
+[gd_scene load_steps=10 format=3 uid="uid://dv20yes6ts7au"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_script.gd" id="1_33tfh"]
 
@@ -17,6 +17,13 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_k2g11")
 radius = 0.05
 height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yiius"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_454h1"]
+material = SubResource("StandardMaterial3D_yiius")
+size = Vector3(0.025, 0.145, 0.035)
 
 [sub_resource type="SphereMesh" id="SphereMesh_1i4ej"]
 radius = 0.025
@@ -50,6 +57,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, -0.23924)
 mesh = SubResource("SphereMesh_sinvs")
 skeleton = NodePath("../body")
 
+[node name="eye_cross_container" type="Node3D" parent="enemy_holder"]
+unique_name_in_owner = true
+visible = false
+
+[node name="eye_1_cross_1" type="MeshInstance3D" parent="enemy_holder/eye_cross_container"]
+transform = Transform3D(0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612372, 0.612372, 0.464819, 1.52558, 0.251012)
+mesh = SubResource("BoxMesh_454h1")
+skeleton = NodePath("../../eye_1")
+
+[node name="eye_1_cross_2" type="MeshInstance3D" parent="enemy_holder/eye_cross_container"]
+transform = Transform3D(0.866025, -0.353553, -0.353553, 0, 0.707107, -0.707107, 0.5, 0.612372, 0.612372, 0.464819, 1.52558, 0.251012)
+mesh = SubResource("BoxMesh_454h1")
+skeleton = NodePath("../../eye_1")
+
+[node name="eye_2_cross_1" type="MeshInstance3D" parent="enemy_holder/eye_cross_container"]
+transform = Transform3D(0.866025, -0.353553, 0.353553, -1.49012e-08, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0.46322, 1.52558, -0.27689)
+mesh = SubResource("BoxMesh_454h1")
+skeleton = NodePath("../../eye_1")
+
+[node name="eye_2_cross_2" type="MeshInstance3D" parent="enemy_holder/eye_cross_container"]
+transform = Transform3D(0.866025, 0.353553, 0.353553, -1.49012e-08, 0.707107, -0.707107, -0.5, 0.612372, 0.612372, 0.46322, 1.52558, -0.27689)
+mesh = SubResource("BoxMesh_454h1")
+skeleton = NodePath("../../eye_1")
+
 [node name="mouth" type="MeshInstance3D" parent="enemy_holder"]
 transform = Transform3D(0.998135, 0, 0.129728, 0, 2.54, 0, -0.0610485, 0, 2.12104, 0.475093, 1.16227, 0)
 mesh = SubResource("SphereMesh_sinvs")
@@ -64,3 +95,10 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.53232, -0.255555)
 mesh = SubResource("SphereMesh_1i4ej")
 skeleton = NodePath("../..")
+
+[node name="Death Timer" type="Timer" parent="enemy_holder"]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="enemy_holder/Death Timer" to="enemy_holder" method="_on_death_timer_timeout"]
