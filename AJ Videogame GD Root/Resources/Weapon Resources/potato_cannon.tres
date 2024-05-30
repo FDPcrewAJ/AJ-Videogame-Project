@@ -14,6 +14,7 @@ current_ammo = 1
 magazine = 1
 auto_reload = true
 type = 2
+w_t_test = 2
 weapon_range = 2000
 damage = 1
 projectile_to_load = ExtResource("1_pykyn")

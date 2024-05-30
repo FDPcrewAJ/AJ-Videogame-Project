@@ -201,4 +201,3 @@ func _on_death_detector_area_entered(_area):
 
 func _on_weapon_manager_use_grapple():
 	grapple(get_process_delta_time())
-	print("called grapple function")

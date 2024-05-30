@@ -13,6 +13,7 @@ current_ammo = 1
 magazine = 1
 auto_reload = true
 type = 1
+w_t_test = 1
 weapon_range = 2000
 damage = 1
 projectile_veloity = 0
