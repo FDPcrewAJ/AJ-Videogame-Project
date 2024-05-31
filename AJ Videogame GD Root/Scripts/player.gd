@@ -9,9 +9,6 @@ class_name Player
 @onready var camera_3d = $neck/head/player_camera
 @onready var grapplecast = $neck/head/grapple_cast
 
-# Weapon ready vars
-@onready var weapon_cast = $neck/head/weapon_cast
-
 # Speed and Movement Variables
 var current_speed = 5.0
 const walking_speed = 5.0
@@ -177,9 +174,6 @@ func _physics_process(delta):
 
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
-	#grapple(delta)
-	#throw_knife()
-	
 	move_and_slide()
 
 
