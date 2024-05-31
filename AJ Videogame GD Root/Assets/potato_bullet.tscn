@@ -15,7 +15,7 @@ radius = 0.142845
 height = 0.555947
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_34uo8"]
-radius = 3.0
+radius = 5.0
 
 [node name="potato_bullet" type="RigidBody3D"]
 top_level = true
@@ -41,6 +41,8 @@ one_shot = true
 autostart = true
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 7
 
 [node name="explosion_radius" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_34uo8")

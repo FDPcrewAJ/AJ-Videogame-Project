@@ -13,6 +13,7 @@ current_ammo = 25
 magazine = 25
 auto_reload = false
 type = 1
+is_grapple = false
 weapon_range = 2000
 damage = 1
 projectile_veloity = 0

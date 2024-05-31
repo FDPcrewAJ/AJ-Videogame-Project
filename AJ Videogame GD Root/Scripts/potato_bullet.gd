@@ -7,11 +7,11 @@ var damage: int = 0
 func _on_body_entered(body):
 	if body.is_in_group("target") && body.has_method("hit_successful"):
 		body.hit_successful(damage)
-		body.apply_central_force((body.global_transform.origin - self.global_transform.origin).normalized() * 5000)
 	for target in explode_rad.get_overlapping_bodies():
 		if target.is_in_group("target"):
-			print("balls2")
-			target.apply_central_force((target.global_transform.origin - self.global_transform.origin).normalized() * 500)
+			target.apply_central_force((target.global_transform.origin - self.global_transform.origin).normalized() * 1000)
+		if target is CharacterBody3D:
+			target.velocity = (target.global_transform.origin - self.global_transform.origin.normalized() * 500) * -1
 	queue_free()
 
 

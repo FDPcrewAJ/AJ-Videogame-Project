@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-var health = 5
+var health = 10
 @onready var timer = get_node("%Death Timer")
 @onready var death_crosses = get_node("%eye_cross_container")
 
