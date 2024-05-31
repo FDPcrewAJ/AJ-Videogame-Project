@@ -12,6 +12,8 @@ func _on_body_entered(body):
 			target.apply_central_force((target.global_transform.origin - self.global_transform.origin).normalized() * 1000)
 		if target is CharacterBody3D:
 			target.velocity = (target.global_transform.origin - self.global_transform.origin.normalized() * 500) * -1
+			if target.velocity.y >= 10.0:
+				target.velocity.y = 10.0
 	queue_free()
 
 

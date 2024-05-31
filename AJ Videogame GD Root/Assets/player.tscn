@@ -737,9 +737,6 @@ start_weapons = Array[String](["grappling_gun", "throwing_knife", "potato_cannon
 transform = Transform3D(-2.53399e-06, 0, -0.7, 0, 0.7, 0, 0.7, 0, -2.53399e-06, 0.000384748, -0.0168746, 0.234583)
 visible = false
 
-[node name="knife_timer" type="Timer" parent="neck/head/weapon_manager/knife_holder"]
-one_shot = true
-
 [node name="Knife" parent="neck/head/weapon_manager/knife_holder" instance=ExtResource("2_rl7at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417013, 0.00232923, 0)
 
@@ -837,5 +834,4 @@ width = 2.5
 [connection signal="update_weapon_stack" from="neck/head/weapon_manager" to="weapon_hud" method="_on_weapon_manager_update_weapon_stack"]
 [connection signal="use_grapple" from="neck/head/weapon_manager" to="." method="_on_weapon_manager_use_grapple"]
 [connection signal="weapon_changed" from="neck/head/weapon_manager" to="weapon_hud" method="_on_weapon_manager_weapon_changed"]
-[connection signal="timeout" from="neck/head/weapon_manager/knife_holder/knife_timer" to="." method="_on_knife_timer_timeout"]
 [connection signal="animation_finished" from="neck/head/weapon_manager/animation_player" to="neck/head/weapon_manager" method="_on_animation_player_animation_finished"]

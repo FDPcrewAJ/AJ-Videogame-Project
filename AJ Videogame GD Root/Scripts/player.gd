@@ -10,8 +10,6 @@ class_name Player
 @onready var grapplecast = $neck/head/grapple_cast
 
 # Weapon ready vars
-@onready var knife = $neck/head/weapon_manager/knife_holder/Knife
-@onready var knife_timer = $neck/head/weapon_manager/knife_holder/knife_timer
 @onready var weapon_cast = $neck/head/weapon_cast
 
 # Speed and Movement Variables
@@ -85,17 +83,6 @@ func grapple(delta):
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
 	else:
 		grapple_point_get = false
-
-
-func throw_knife():
-	if Input.is_action_just_pressed("shoot"):
-		knife_timer.start()
-		var knife_position = weapon_cast.get_collision_point()
-		knife.global_position = knife_position
-
-
-func _on_knife_timer_timeout():
-	knife.position = Vector3.ZERO
 
 
 func _physics_process(delta):
@@ -192,6 +179,7 @@ func _physics_process(delta):
 	#print(grapple_point)
 	#grapple(delta)
 	#throw_knife()
+	
 	move_and_slide()
 
 
