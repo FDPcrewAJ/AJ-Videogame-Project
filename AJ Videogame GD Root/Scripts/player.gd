@@ -39,9 +39,16 @@ var direction = Vector3.ZERO
 
 # Grappling Variables
 var grappling = false
-var grapple_point = Vector3.ZERO
+var grapple_position = Vector3.ZERO
 var grapple_point_get = false
 var grapple_length = Vector2.ZERO
+var hooked = false
+var rest_length = 1.0
+var grapple_speed = .5
+var max_grapple_speed = 2.75
+var grapple_point: NodePath
+@onready var line_holder = get_node("neck/head/weapon_manager/grap_gun_holder/line_container")
+@onready var grapple_line = get_node("neck/head/weapon_manager/grap_gun_holder/line_container/grapple_line")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -62,8 +69,8 @@ func _input(event):
 			head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 
 
-func grapple(delta):
-	if Input.is_action_pressed("shoot"):
+func grapple():
+	"""if Input.is_action_pressed("shoot"):
 		if grapplecast.is_colliding():
 			if not grappling:
 				grappling = true
@@ -79,7 +86,50 @@ func grapple(delta):
 			if grapple_point_get:
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
 	else:
-		grapple_point_get = false
+		grapple_point_get = false"""
+	check_hook_activation()
+	var length = calculate_path()
+	draw_hook(length)
+	look_for_point()
+
+
+func check_hook_activation():
+	# Activate the hook
+	if Input.is_action_just_pressed("shoot") and grapplecast.is_colliding():
+		hooked = true
+		grapple_position = grapplecast.get_collision_point()
+		rest_length = (grapple_position - global_position).length() - 2
+		grapple_line.show()
+	# Stop grappling
+	elif Input.is_action_just_released("shoot"):
+		print("this worked")
+		hooked = false
+		rest_length = 2
+		grapple_line.hide()
+
+
+func calculate_path():
+	var player_2_hook = grapple_position - position
+	var length = player_2_hook.distance_to(position)
+	if hooked:
+		var force = grapple_speed * (length - rest_length)
+		
+		if abs(force) > max_grapple_speed:
+			force = max_grapple_speed
+		
+		velocity += player_2_hook.normalized() * force
+	return length
+
+
+func draw_hook(length):
+	line_holder.look_at(grapple_position, Vector3.UP)
+	grapple_line.height = length
+	grapple_line.position.z = length / -2
+
+func look_for_point():
+	var grapple_pt = get_node_or_null(grapple_point)
+	if grapple_pt and grapplecast.is_colliding():
+		grapple_pt.position = grapplecast.get_collision_point()
 
 
 func _physics_process(delta):
@@ -169,7 +219,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 	if Input.is_action_pressed("load_checkpoint"):
-		global_position = global.check_point_pos
+		global_position = singleton.check_point_pos
 
 
 	#print(grapple_joint.global_position)
@@ -178,8 +228,8 @@ func _physics_process(delta):
 
 
 func _on_death_detector_area_entered(_area):
-	global_position = global.check_point_pos
+	global_position = singleton.check_point_pos
 
 
 func _on_weapon_manager_use_grapple():
-	grapple(get_process_delta_time())
+	grapple()

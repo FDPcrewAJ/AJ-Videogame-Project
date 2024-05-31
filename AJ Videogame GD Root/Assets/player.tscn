@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=43 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
@@ -25,6 +25,9 @@ albedo_color = Color(0.717647, 0.572549, 0.407843, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hytrv"]
 material = SubResource("StandardMaterial3D_vmf70")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrso4"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_eno50"]
 length = 0.001
@@ -762,6 +765,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.147658)
 visible = false
 
 [node name="temp_grappling_gun" parent="neck/head/weapon_manager/grap_gun_holder" instance=ExtResource("6_6fp6b")]
+
+[node name="line_container" type="Node3D" parent="neck/head/weapon_manager/grap_gun_holder"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.499419)
+
+[node name="grapple_line" type="CSGCylinder3D" parent="neck/head/weapon_manager/grap_gun_holder/line_container"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -1)
+radius = 0.02
+material = SubResource("StandardMaterial3D_wrso4")
 
 [node name="animation_player" type="AnimationPlayer" parent="neck/head/weapon_manager"]
 unique_name_in_owner = true

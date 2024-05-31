@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-global="*res://Scripts/GlobalScript.gd"
+singleton="*res://Scripts/GlobalScript.gd"
 Checkpt="*res://Scripts/Checkpoint.gd"
 
 [display]

@@ -6,4 +6,4 @@ func _ready():
 
 
 func _on_area_entered(_area:Area3D):
-	global.check_point_pos = global_position
+	singleton.check_point_pos = global_position
