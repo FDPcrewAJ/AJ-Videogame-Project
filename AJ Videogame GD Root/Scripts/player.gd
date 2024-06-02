@@ -97,11 +97,10 @@ func check_hook_activation():
 	if Input.is_action_just_pressed("shoot") and grapplecast.is_colliding():
 		hooked = true
 		grapple_position = grapplecast.get_collision_point()
-		rest_length = (grapple_position - global_position).length() - 2
+		rest_length = (grapple_position - global_position).length() - 100
 		grapple_line.show()
 	# Stop grappling
 	if Input.is_action_just_released("shoot"):
-		print("this worked")
 		hooked = false
 		rest_length = 2
 		grapple_line.hide()
@@ -229,11 +228,6 @@ func _physics_process(delta):
 
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
-	"""if Input.is_action_just_released("shoot"):
-		print("We know this works")
-		hooked = false
-		rest_length = 2
-		grapple_line.hide()"""
 	check_hook_activation()
 	move_and_slide()
 
