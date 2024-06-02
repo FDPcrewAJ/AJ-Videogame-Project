@@ -87,7 +87,6 @@ func grapple():
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
 	else:
 		grapple_point_get = false"""
-	check_hook_activation()
 	var length = calculate_path()
 	draw_hook(length)
 	look_for_point()
@@ -101,7 +100,7 @@ func check_hook_activation():
 		rest_length = (grapple_position - global_position).length() - 2
 		grapple_line.show()
 	# Stop grappling
-	elif Input.is_action_just_released("shoot"):
+	if Input.is_action_just_released("shoot"):
 		print("this worked")
 		hooked = false
 		rest_length = 2
@@ -112,6 +111,12 @@ func calculate_path():
 	var player_2_hook = grapple_position - position
 	var length = player_2_hook.distance_to(position)
 	if hooked:
+		# Dampen speed when we are close to the line
+		if length > 4:
+			velocity *= .999
+		else:
+			velocity *= .9
+			
 		var force = grapple_speed * (length - rest_length)
 		
 		if abs(force) > max_grapple_speed:
@@ -224,6 +229,12 @@ func _physics_process(delta):
 
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
+	"""if Input.is_action_just_released("shoot"):
+		print("We know this works")
+		hooked = false
+		rest_length = 2
+		grapple_line.hide()"""
+	check_hook_activation()
 	move_and_slide()
 
 
