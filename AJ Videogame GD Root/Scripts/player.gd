@@ -44,8 +44,8 @@ var grapple_point_get = false
 var grapple_length = Vector2.ZERO
 var hooked = false
 var rest_length = 1.0
-var grapple_speed = .5
-var max_grapple_speed = 2.75
+var grapple_speed = 0.5
+var max_grapple_speed = 1
 var grapple_point: NodePath
 @onready var line_holder = get_node("neck/head/weapon_manager/grap_gun_holder/line_container")
 @onready var grapple_line = get_node("neck/head/weapon_manager/grap_gun_holder/line_container/grapple_line")
@@ -87,9 +87,9 @@ func grapple():
 				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
 	else:
 		grapple_point_get = false"""
+	look_for_point()
 	var length = calculate_path()
 	draw_hook(length)
-	look_for_point()
 
 
 func check_hook_activation():
@@ -97,24 +97,23 @@ func check_hook_activation():
 	if Input.is_action_just_pressed("shoot") and grapplecast.is_colliding():
 		hooked = true
 		grapple_position = grapplecast.get_collision_point()
-		rest_length = (grapple_position - global_position).length() - 100
+		rest_length = (grapple_position - global_position).length() - 2
 		grapple_line.show()
 	# Stop grappling
 	if Input.is_action_just_released("shoot"):
 		hooked = false
-		rest_length = 2
 		grapple_line.hide()
 
 
 func calculate_path():
-	var player_2_hook = grapple_position - position
+	var player_2_hook = grapple_position - global_position
 	var length = player_2_hook.distance_to(position)
 	if hooked:
 		# Dampen speed when we are close to the line
 		if length > 4:
 			velocity *= .999
 		else:
-			velocity *= .9
+			velocity *= .999
 			
 		var force = grapple_speed * (length - rest_length)
 		
@@ -122,6 +121,8 @@ func calculate_path():
 			force = max_grapple_speed
 		
 		velocity += player_2_hook.normalized() * force
+		velocity.clamp(Vector3.ZERO, Vector3.ONE)
+		
 	return length
 
 
@@ -229,6 +230,7 @@ func _physics_process(delta):
 	#print(grapple_joint.global_position)
 	#print(grapple_point)
 	check_hook_activation()
+	
 	move_and_slide()
 
 
