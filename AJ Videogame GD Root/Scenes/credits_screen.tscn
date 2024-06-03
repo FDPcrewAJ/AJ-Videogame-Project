@@ -61,7 +61,7 @@ theme_override_fonts/font = ExtResource("3_vh4ch")
 theme_override_font_sizes/font_size = 90
 text = "Credits"
 
-[node name="Label" type="Label" parent="."]
+[node name="credits" type="Label" parent="."]
 layout_mode = 0
 offset_left = -502.0
 offset_top = -250.0
@@ -71,11 +71,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_j5h0i")
 theme_override_font_sizes/font_size = 56
-text = "Movement Tutorial From: 
-	Lukky (Youtube Series)
+text = "Movement Tutorial and skybox From:
+--Lukky (Youtube Series)
 Weapons Manager Tutorial From:
-	Chaff Games (Youtube Series)
+--Chaff Games (Youtube Series)
 Original Grappling hook tutorial from:
-	Garbah (Youtube Video)"
+--Garbah (Youtube Video)"
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

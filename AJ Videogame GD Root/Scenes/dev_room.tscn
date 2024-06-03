@@ -56,7 +56,7 @@ material = SubResource("StandardMaterial3D_qoil1")
 size = Vector3(2, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k44vx"]
-size = Vector3(100, 1, 100)
+size = Vector3(400, 1, 400)
 
 [node name="Level_1" type="Node3D"]
 

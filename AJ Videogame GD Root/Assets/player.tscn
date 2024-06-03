@@ -669,7 +669,7 @@ script = ExtResource("2_8ypol")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="weapon_hud"]
 offset_left = 5.0
-offset_top = 876.0
+offset_top = 860.0
 offset_right = 292.0
 offset_bottom = 1063.0
 
@@ -698,7 +698,7 @@ layout_mode = 2
 
 [node name="stack" type="Label" parent="weapon_hud/VBoxContainer/stack_container"]
 layout_mode = 2
-text = "Weapon Stack:"
+text = "Weapons:"
 
 [node name="weapon_stack" type="Label" parent="weapon_hud/VBoxContainer/stack_container"]
 layout_mode = 2
