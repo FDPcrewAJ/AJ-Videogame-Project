@@ -49,7 +49,7 @@ var grapple_length = Vector2.ZERO
 var hooked = false
 var rest_length = 1.0
 var grapple_speed = 0.5
-var max_grapple_speed = 1
+var max_grapple_speed = 2
 var grapple_point: NodePath
 @onready var line_holder = get_node("neck/head/weapon_manager/grap_gun_holder/line_container")
 @onready var grapple_line = get_node("neck/head/weapon_manager/grap_gun_holder/line_container/grapple_line")
@@ -93,7 +93,7 @@ func grapple():
 	else:
 		grapple_point_get = false"""
 	look_for_point()
-	var length = calculate_path()
+	var length = calculate_path(get_position_delta())
 	draw_hook(length)
 
 
@@ -110,7 +110,7 @@ func check_hook_activation():
 		grapple_line.hide()
 
 
-func calculate_path():
+func calculate_path(delta):
 	var player_2_hook = grapple_position - global_position
 	var length = player_2_hook.distance_to(position)
 	if hooked:
@@ -125,8 +125,13 @@ func calculate_path():
 		if abs(force) > max_grapple_speed:
 			force = max_grapple_speed
 		
-		velocity += player_2_hook.normalized() * force
+		#velocity += player_2_hook.normalized() * force
 		velocity.clamp(Vector3.ZERO, Vector3.ONE)
+		
+		if length > rest_length + 1:
+			velocity += force * grapple_speed * delta
+		elif length < rest_length - 1:
+			velocity -= force * grapple_speed * delta
 		
 	return length
 
@@ -239,6 +244,7 @@ func _physics_process(delta):
 func _on_weapon_manager_use_grapple():
 	if allow_control:
 		grapple()
+		print("signal called")
 
 
 func _on_death_detector_area_entered(_area):
