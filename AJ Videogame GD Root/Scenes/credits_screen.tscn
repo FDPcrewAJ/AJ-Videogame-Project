@@ -76,6 +76,8 @@ text = "Movement Tutorial and skybox From:
 Weapons Manager Tutorial From:
 --Chaff Games (Youtube Series)
 Original Grappling hook tutorial from:
---Garbah (Youtube Video)"
+--Garbaj (Youtube Video)
+Placeholder Dev Textures From:
+--Kenney"
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
