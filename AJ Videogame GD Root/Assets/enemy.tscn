@@ -4,19 +4,23 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ly420"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ss7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfsta"]
 albedo_color = Color(0.658824, 0.258824, 0.176471, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0720w"]
-material = SubResource("StandardMaterial3D_t4ss7")
+material = SubResource("StandardMaterial3D_mfsta")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2g11"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxxjo"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_sinvs"]
-material = SubResource("StandardMaterial3D_k2g11")
+material = SubResource("StandardMaterial3D_mxxjo")
 radius = 0.05
 height = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_1i4ej"]
+radius = 0.025
+height = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yiius"]
 albedo_color = Color(1, 0, 0, 1)
@@ -24,10 +28,6 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_454h1"]
 material = SubResource("StandardMaterial3D_yiius")
 size = Vector3(0.025, 0.145, 0.035)
-
-[sub_resource type="SphereMesh" id="SphereMesh_1i4ej"]
-radius = 0.025
-height = 0.05
 
 [node name="Enemy" type="Node3D" groups=["target"]]
 
@@ -55,6 +55,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, -0.23924)
 mesh = SubResource("SphereMesh_sinvs")
 skeleton = NodePath("../body")
 
+[node name="pupil_1" type="MeshInstance3D" parent="enemy_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446523, 1.5222, 0.235435)
+mesh = SubResource("SphereMesh_1i4ej")
+skeleton = NodePath("../..")
+
+[node name="pupil_2" type="MeshInstance3D" parent="enemy_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.53232, -0.255555)
+mesh = SubResource("SphereMesh_1i4ej")
+skeleton = NodePath("../..")
+
+[node name="mouth" type="MeshInstance3D" parent="enemy_holder"]
+transform = Transform3D(0.998135, 0, 0.129728, 0, 2.54, 0, -0.0610485, 0, 2.12104, 0.475093, 1.16227, 0)
+mesh = SubResource("SphereMesh_sinvs")
+skeleton = NodePath("../body")
+
 [node name="eye_cross_container" type="Node3D" parent="enemy_holder"]
 unique_name_in_owner = true
 visible = false
@@ -78,21 +93,6 @@ skeleton = NodePath("../../eye_1")
 transform = Transform3D(0.866025, 0.353553, 0.353553, -1.49012e-08, 0.707107, -0.707107, -0.5, 0.612372, 0.612372, 0.46322, 1.52558, -0.27689)
 mesh = SubResource("BoxMesh_454h1")
 skeleton = NodePath("../../eye_1")
-
-[node name="mouth" type="MeshInstance3D" parent="enemy_holder"]
-transform = Transform3D(0.998135, 0, 0.129728, 0, 2.54, 0, -0.0610485, 0, 2.12104, 0.475093, 1.16227, 0)
-mesh = SubResource("SphereMesh_sinvs")
-skeleton = NodePath("../body")
-
-[node name="pupil_1" type="MeshInstance3D" parent="enemy_holder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446523, 1.5222, 0.235435)
-mesh = SubResource("SphereMesh_1i4ej")
-skeleton = NodePath("../..")
-
-[node name="pupil_2" type="MeshInstance3D" parent="enemy_holder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.53232, -0.255555)
-mesh = SubResource("SphereMesh_1i4ej")
-skeleton = NodePath("../..")
 
 [node name="Death Timer" type="Timer" parent="enemy_holder"]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cm55hroicd0n0"]
+[gd_scene load_steps=23 format=3 uid="uid://cm55hroicd0n0"]
 
 [ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="1_jk2f8"]
 [ext_resource type="Script" path="res://Scripts/rotate_menu.gd" id="2_a2h1c"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="4_s7fq2"]
 [ext_resource type="PackedScene" uid="uid://b0eo2ay8svpw0" path="res://Imports/knife/knife.glb" id="5_k8phc"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="5_rbdqq"]
-[ext_resource type="PackedScene" uid="uid://dv20yes6ts7au" path="res://Assets/enemy.tscn" id="6_gcxi8"]
 [ext_resource type="PackedScene" uid="uid://bekrnanblaq83" path="res://Scenes/main_menu_ui.tscn" id="6_lqyax"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjyh1"]
@@ -38,6 +37,24 @@ albedo_color = Color(0.717647, 0.572549, 0.407843, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2jlep"]
 material = SubResource("StandardMaterial3D_64e87")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4ss7"]
+albedo_color = Color(0.658824, 0.258824, 0.176471, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xbbbs"]
+material = SubResource("StandardMaterial3D_t4ss7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2g11"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ha06b"]
+material = SubResource("StandardMaterial3D_k2g11")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_cf4mb"]
+radius = 0.025
+height = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsmjg"]
 albedo_color = Color(0, 0, 0, 1)
@@ -88,14 +105,104 @@ transform = Transform3D(-0.79693, -0.101838, 0.595428, -0.113432, 0.993382, 0.01
 
 [node name="enemies" type="Node3D" parent="menu_panorama"]
 
-[node name="Enemy" parent="menu_panorama/enemies" instance=ExtResource("6_gcxi8")]
-transform = Transform3D(-0.934875, 0.251512, 0.250499, 0.242942, 0.967854, -0.0650962, -0.258819, 2.87868e-08, -0.965926, 3.1827, 0.484977, -1.17861)
+[node name="enemy1" type="Node3D" parent="menu_panorama/enemies"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0.25892, 0.965899, 1.13178e-08, -0.965899, 0.25892, -4.22208e-08, -1.56276, 0.449004, 3.43478)
 
-[node name="Enemy2" parent="menu_panorama/enemies" instance=ExtResource("6_gcxi8")]
-transform = Transform3D(0.47148, 0.0890971, -0.877364, 0.00230481, 0.994755, 0.102257, 0.881874, -0.0502343, 0.468801, 3.35679, 0.466948, 3.0641)
+[node name="body" type="MeshInstance3D" parent="menu_panorama/enemies/enemy1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00588, 0)
+mesh = SubResource("CapsuleMesh_xbbbs")
+skeleton = NodePath("../../..")
 
-[node name="Enemy3" parent="menu_panorama/enemies" instance=ExtResource("6_gcxi8")]
-transform = Transform3D(0.113725, 0.0382262, 0.992777, 0.242942, 0.967854, -0.0650961, -0.963351, 0.24859, 0.100782, -1.6468, 0.451582, 3.44231)
+[node name="eye_1" type="MeshInstance3D" parent="menu_panorama/enemies/enemy1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, 0.219427)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="eye_2" type="MeshInstance3D" parent="menu_panorama/enemies/enemy1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, -0.23924)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="pupil_1" type="MeshInstance3D" parent="menu_panorama/enemies/enemy1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446523, 1.5222, 0.235435)
+mesh = SubResource("SphereMesh_cf4mb")
+skeleton = NodePath("../../..")
+
+[node name="pupil_2" type="MeshInstance3D" parent="menu_panorama/enemies/enemy1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.53232, -0.255555)
+mesh = SubResource("SphereMesh_cf4mb")
+skeleton = NodePath("../../..")
+
+[node name="mouth" type="MeshInstance3D" parent="menu_panorama/enemies/enemy1"]
+transform = Transform3D(0.998135, 0, 0.129728, 0, 2.54, 0, -0.0610485, 0, 2.12104, 0.475093, 1.16227, 0)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="enemy2" type="Node3D" parent="menu_panorama/enemies"]
+transform = Transform3D(0.573578, 0.118647, -0.810513, -0.0685372, 0.992937, 0.0968487, 0.816279, 0, 0.577658, 3.32707, 0.485184, 3.03731)
+
+[node name="body" type="MeshInstance3D" parent="menu_panorama/enemies/enemy2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00588, 0)
+mesh = SubResource("CapsuleMesh_xbbbs")
+skeleton = NodePath("../../..")
+
+[node name="eye_1" type="MeshInstance3D" parent="menu_panorama/enemies/enemy2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, 0.219427)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="eye_2" type="MeshInstance3D" parent="menu_panorama/enemies/enemy2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, -0.23924)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="pupil_1" type="MeshInstance3D" parent="menu_panorama/enemies/enemy2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446523, 1.5222, 0.235435)
+mesh = SubResource("SphereMesh_cf4mb")
+skeleton = NodePath("../../..")
+
+[node name="pupil_2" type="MeshInstance3D" parent="menu_panorama/enemies/enemy2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.53232, -0.255555)
+mesh = SubResource("SphereMesh_cf4mb")
+skeleton = NodePath("../../..")
+
+[node name="mouth" type="MeshInstance3D" parent="menu_panorama/enemies/enemy2"]
+transform = Transform3D(0.998135, 0, 0.129728, 0, 2.54, 0, -0.0610485, 0, 2.12104, 0.475093, 1.16227, 0)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="enemy3" type="Node3D" parent="menu_panorama/enemies"]
+transform = Transform3D(-0.975141, 0.21644, -0.0474706, 0.216184, 0.976296, 0.010524, 0.0486231, 0, -0.998817, 3.24363, 0.511732, -1.22724)
+
+[node name="body" type="MeshInstance3D" parent="menu_panorama/enemies/enemy3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00588, 0)
+mesh = SubResource("CapsuleMesh_xbbbs")
+skeleton = NodePath("../../..")
+
+[node name="eye_1" type="MeshInstance3D" parent="menu_panorama/enemies/enemy3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, 0.219427)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="eye_2" type="MeshInstance3D" parent="menu_panorama/enemies/enemy3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424867, 1.52558, -0.23924)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
+
+[node name="pupil_1" type="MeshInstance3D" parent="menu_panorama/enemies/enemy3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446523, 1.5222, 0.235435)
+mesh = SubResource("SphereMesh_cf4mb")
+skeleton = NodePath("../../..")
+
+[node name="pupil_2" type="MeshInstance3D" parent="menu_panorama/enemies/enemy3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445525, 1.53232, -0.255555)
+mesh = SubResource("SphereMesh_cf4mb")
+skeleton = NodePath("../../..")
+
+[node name="mouth" type="MeshInstance3D" parent="menu_panorama/enemies/enemy3"]
+transform = Transform3D(0.998135, 0, 0.129728, 0, 2.54, 0, -0.0610485, 0, 2.12104, 0.475093, 1.16227, 0)
+mesh = SubResource("SphereMesh_ha06b")
+skeleton = NodePath("../body")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="menu_panorama"]
 transform = Transform3D(0.353553, 0.612372, -0.707107, -0.866025, 0.5, 0, 0.353553, 0.612372, 0.707107, -1.1259, 3.80205, -2.058)
