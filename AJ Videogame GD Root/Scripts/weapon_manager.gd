@@ -19,7 +19,7 @@ var weapon_list = {}
 @export var _weapon_resources: Array[weapons_resource]
 @export var start_weapons: Array[String]
 
-enum weapon_type {Null, Hitscan, Projectile, Grapple}
+enum weapon_type {Null, Hitscan, Projectile}
 
 var collision_exclusion = []
 
@@ -41,6 +41,26 @@ func _input(event):
 	
 	if event.is_action_pressed("reload"):
 		reload()
+	
+	if event.is_action_pressed("weapon_1"):
+		weapon_indicator = 0
+		exit(weapon_stack[weapon_indicator])
+	
+	if event.is_action_pressed("weapon_2"):
+		weapon_indicator = 1
+		exit(weapon_stack[weapon_indicator])
+	
+	if event.is_action_pressed("weapon_3"):
+		weapon_indicator = 2
+		exit(weapon_stack[weapon_indicator])
+	
+	if event.is_action_pressed("weapon_4"):
+		weapon_indicator = 3
+		exit(weapon_stack[weapon_indicator])
+	
+	if event.is_action_pressed("weapon_5"):
+		weapon_indicator = 4
+		exit(weapon_stack[weapon_indicator])
 
 
 func initialize(_start_weapons: Array):
