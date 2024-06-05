@@ -122,7 +122,6 @@ func calculate_path(delta):
 			velocity *= .999
 			
 		var force = grapple_speed * (length - rest_length)
-		
 		if abs(force) > max_grapple_speed:
 			force = max_grapple_speed
 		
@@ -176,7 +175,6 @@ func _physics_process(delta):
 			# Standing
 			standing_collision_shape.disabled = false
 			crouching_collision_shape.disabled = true
-			
 			head.position.y = lerp(head.position.y, 0.0, delta * lerp_speed)
 			if Input.is_action_pressed("sprint"):
 				# Sprinting
@@ -190,7 +188,7 @@ func _physics_process(delta):
 				walking = true
 				sprinting = false
 				crouching = false
-
+		
 		# Handle Free Look
 		if Input.is_action_pressed("free_look") || sliding:
 			free_looking = true
@@ -206,17 +204,16 @@ func _physics_process(delta):
 			if slide_timer <= 0:
 				sliding = false
 				free_looking = false
-
+		
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y -= gravity * delta
-
-
+		
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = jump_velocity
 			sliding = false
-
+		
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		if is_on_floor():
@@ -227,14 +224,14 @@ func _physics_process(delta):
 		if sliding:
 			direction = (transform.basis * Vector3(slide_vector.x, 0, slide_vector.y)).normalized()
 			current_speed = (slide_timer + 0.1) * slide_speed
-
+		
 		if direction:
 			velocity.x = direction.x * current_speed
-			velocity.z = direction.z * current_speed
-
+			velocity.z = direction.z * current_speed        
 		else:
 			velocity.x = move_toward(velocity.x, 0, current_speed)
 			velocity.z = move_toward(velocity.z, 0, current_speed)
+		
 		if Input.is_action_pressed("load_checkpoint"):
 			global_position = singleton.check_point_pos
 	

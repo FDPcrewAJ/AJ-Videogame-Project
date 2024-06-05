@@ -799,9 +799,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.499419)
 
 [node name="grapple_line" type="CSGCylinder3D" parent="neck/head/weapon_manager/grap_gun_holder/line_container"]
 unique_name_in_owner = true
-transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, -1.48136)
 radius = 0.02
-height = 0.1
+height = 2.95457
 material = SubResource("StandardMaterial3D_wrso4")
 
 [node name="animation_player" type="AnimationPlayer" parent="neck/head/weapon_manager"]

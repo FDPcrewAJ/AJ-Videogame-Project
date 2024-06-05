@@ -64,9 +64,9 @@ text = "Credits"
 [node name="credits" type="Label" parent="."]
 layout_mode = 0
 offset_left = -502.0
-offset_top = -250.0
+offset_top = -346.0
 offset_right = 524.0
-offset_bottom = 227.0
+offset_bottom = 361.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_j5h0i")
@@ -78,6 +78,8 @@ Weapons Manager Tutorial From:
 Original Grappling hook tutorial from:
 --Garbaj (Youtube Video)
 Placeholder Dev Textures From:
---Kenney"
+--Kenney
+Second Grappling Hook Tutorial From:
+--Grappling Hook Example: Calving Wong"
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
