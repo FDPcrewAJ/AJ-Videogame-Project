@@ -54,6 +54,8 @@ var grapple_point: NodePath
 @onready var line_holder = get_node("neck/head/weapon_manager/grap_gun_holder/line_container")
 @onready var grapple_line = get_node("neck/head/weapon_manager/grap_gun_holder/line_container/grapple_line")
 
+var air_resistance = -200
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -140,6 +142,7 @@ func draw_hook(length):
 	line_holder.look_at(grapple_position, Vector3.UP)
 	grapple_line.height = length
 	grapple_line.position.z = length / -2
+
 
 func look_for_point():
 	var grapple_pt = get_node_or_null(grapple_point)
