@@ -134,14 +134,14 @@ func calculate_path(delta):
 			velocity -= force * grapple_speed * delta
 		elif length < rest_length - 1:
 			velocity += force * grapple_speed * delta
-		
+	
 	return length
 
 
 func draw_hook(length):
 	line_holder.look_at(grapple_position, Vector3.UP)
-	grapple_line.height = length
-	grapple_line.position.z = length / -2
+	grapple_line.height = length / 2
+	grapple_line.position.z = length / -4
 
 
 func look_for_point():
