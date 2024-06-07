@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://ckfbil3wmgs7p"]
+[gd_scene load_steps=21 format=3 uid="uid://ckfbil3wmgs7p"]
 
-[ext_resource type="PackedScene" uid="uid://cig5bv4l3apst" path="res://Scenes/controls.tscn" id="1_1b8s2"]
 [ext_resource type="PackedScene" uid="uid://cy7hnsibedn0j" path="res://Assets/player.tscn" id="2_cfpsl"]
 [ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="3_sh1h7"]
 [ext_resource type="PackedScene" uid="uid://bvbo0d7rp5dnk" path="res://Assets/checkpoint.tscn" id="4_guaaf"]
@@ -60,11 +59,7 @@ size = Vector3(400, 1, 400)
 
 [node name="Level_1" type="Node3D"]
 
-[node name="Controls" parent="." instance=ExtResource("1_1b8s2")]
-
 [node name="Player" parent="." instance=ExtResource("2_cfpsl")]
-collision_layer = 2
-collision_mask = 3
 
 [node name="env" type="Node3D" parent="."]
 

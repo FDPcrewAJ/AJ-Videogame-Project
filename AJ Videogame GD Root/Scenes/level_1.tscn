@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci4som4nw58jl"]
+
+[ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="1_t76on"]
+[ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="2_50jxt"]
+[ext_resource type="PackedScene" uid="uid://cy7hnsibedn0j" path="res://Assets/player.tscn" id="3_un6b5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slw5i"]
+albedo_texture = ExtResource("2_50jxt")
+uv1_triplanar = true
+
+[node name="level_1" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("3_un6b5")]
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = ExtResource("1_t76on")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(0.738267, 0.292146, -0.607958, 0, 0.901334, 0.433124, 0.674509, -0.319761, 0.665425, 0, 0, 0)
+
+[node name="world" type="Node3D" parent="."]
+
+[node name="ground" type="Node3D" parent="world"]
+
+[node name="floor1" type="CSGBox3D" parent="world/ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(17, 1, 17)
+material = SubResource("StandardMaterial3D_slw5i")

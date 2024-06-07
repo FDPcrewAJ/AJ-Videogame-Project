@@ -9,6 +9,8 @@ class_name Player
 @onready var camera_3d = $neck/head/player_camera
 @onready var grapplecast = $neck/head/grapple_cast
 @onready var death_menu = $death_menu
+@onready var controls = $Controls
+var controls_bool = false
 
 # Varible to disable inputs when dead
 var allow_control = true
@@ -237,6 +239,10 @@ func _physics_process(delta):
 		
 		if Input.is_action_pressed("load_checkpoint"):
 			global_position = singleton.check_point_pos
+	
+	if Input.is_action_just_pressed("toggle_control_ui"):
+		controls.visible = controls_bool
+		controls_bool = not controls_bool
 	
 	check_hook_activation()
 	move_and_slide()
