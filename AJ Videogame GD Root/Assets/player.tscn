@@ -1,17 +1,22 @@
-[gd_scene load_steps=46 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=51 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
 [ext_resource type="Script" path="res://Scripts/weapon_hud.gd" id="2_8ypol"]
 [ext_resource type="PackedScene" uid="uid://brgx0q665pc8p" path="res://Assets/knife.tscn" id="2_rl7at"]
 [ext_resource type="Script" path="res://Scripts/weapon_manager.gd" id="2_u8527"]
+[ext_resource type="Texture2D" uid="uid://cwu8a1fuxrut6" path="res://Textures/ui/cannon_ui_icon.png" id="3_73qoi"]
+[ext_resource type="Texture2D" uid="uid://dyplgw50km8ui" path="res://Textures/ui/grapgun_ui_icon.png" id="3_h7ng0"]
 [ext_resource type="Resource" uid="uid://cr0kkcwqa6xw0" path="res://Resources/Weapon Resources/grappling_gun.tres" id="3_yorxt"]
 [ext_resource type="Resource" uid="uid://xyvs0du3j3cq" path="res://Resources/Weapon Resources/throwing_knife.tres" id="4_7tv2r"]
+[ext_resource type="Texture2D" uid="uid://dbujrkidk7s1l" path="res://Textures/ui/knife_ui_icon.png" id="4_tt4ct"]
 [ext_resource type="PackedScene" uid="uid://fpvy554lb0md" path="res://Imports/temp mg/temp_machine_gun.glb" id="5_ccppv"]
 [ext_resource type="Resource" uid="uid://cniolbjqda6aw" path="res://Resources/Weapon Resources/fry_shotgun.tres" id="5_u6og4"]
 [ext_resource type="PackedScene" uid="uid://nqt6o4mxust3" path="res://Imports/temp grappling gun/temp_grappling_gun.glb" id="6_6fp6b"]
 [ext_resource type="Resource" uid="uid://cgo6lsokt56fp" path="res://Resources/Weapon Resources/potato_cannon.tres" id="6_idb32"]
+[ext_resource type="Texture2D" uid="uid://dqik1p0mcrbax" path="res://Textures/ui/shotgun_ui_icon.png" id="6_juiwd"]
 [ext_resource type="Resource" uid="uid://b5w51fvtqxo8" path="res://Resources/Weapon Resources/rotary_mg.tres" id="7_i40mb"]
+[ext_resource type="Texture2D" uid="uid://cm3acl52rol04" path="res://Textures/ui/mg_ui_icon.png" id="7_ig1wv"]
 [ext_resource type="PackedScene" uid="uid://bkj7rmwi7piji" path="res://Imports/potato_cannon/potato_cannon.glb" id="10_0keih"]
 [ext_resource type="FontFile" uid="uid://dybhj5pc8e0n1" path="res://Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="15_jehua"]
 [ext_resource type="PackedScene" uid="uid://bkdgrhivvp1qe" path="res://Imports/fry shotgun/french_fry_shotgun.glb" id="15_q0a40"]
@@ -744,10 +749,262 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="weapon_hud/hotbar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="grap_gun" type="Control" parent="weapon_hud/hotbar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ui_bg" type="ColorRect" parent="weapon_hud/hotbar/grap_gun"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.611765)
+
+[node name="weapon_texture" type="TextureRect" parent="weapon_hud/hotbar/grap_gun"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h7ng0")
+expand_mode = 4
+
+[node name="knife" type="Control" parent="weapon_hud/hotbar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -60.0
+offset_right = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ui_bg" type="ColorRect" parent="weapon_hud/hotbar/knife"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.611765)
+
+[node name="weapon_texture" type="TextureRect" parent="weapon_hud/hotbar/knife"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tt4ct")
+expand_mode = 4
+
+[node name="cannon" type="Control" parent="weapon_hud/hotbar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -60.0
+offset_right = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ui_bg" type="ColorRect" parent="weapon_hud/hotbar/cannon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.611765)
+
+[node name="weapon_texture" type="TextureRect" parent="weapon_hud/hotbar/cannon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_73qoi")
+expand_mode = 4
+
+[node name="shotgun" type="Control" parent="weapon_hud/hotbar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -60.0
+offset_right = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ui_bg" type="ColorRect" parent="weapon_hud/hotbar/shotgun"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.611765)
+
+[node name="weapon_texture" type="TextureRect" parent="weapon_hud/hotbar/shotgun"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_juiwd")
+expand_mode = 4
+
+[node name="mg" type="Control" parent="weapon_hud/hotbar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = -60.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ui_bg" type="ColorRect" parent="weapon_hud/hotbar/mg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.611765)
+
+[node name="weapon_texture" type="TextureRect" parent="weapon_hud/hotbar/mg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ig1wv")
+expand_mode = 4
+
+[node name="outline_holder" type="Control" parent="weapon_hud/hotbar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -40.0
+offset_right = -90.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="weapon_hud/hotbar/outline_holder"]
+position = Vector2(-1, 0)
+points = PackedVector2Array(62, 0, 0, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="weapon_hud/hotbar/outline_holder"]
+position = Vector2(0, 1)
+rotation = 1.5708
+points = PackedVector2Array(58, 0, 0, 0)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="weapon_hud/hotbar/outline_holder"]
+position = Vector2(-1, 60)
+points = PackedVector2Array(62, 0, 0, 0)
+width = 2.0
+
+[node name="Line2D4" type="Line2D" parent="weapon_hud/hotbar/outline_holder"]
+position = Vector2(60, 1)
+rotation = 1.5708
+points = PackedVector2Array(58, 0, 0, 0)
+width = 2.0
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4vxfi")
@@ -982,6 +1239,10 @@ text = "Restart Game"
 flat = true
 
 [node name="Controls" parent="." instance=ExtResource("17_sbmdl")]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
 
 [connection signal="update_ammo" from="neck/head/weapon_manager" to="weapon_hud" method="_on_weapon_manager_update_ammo"]
 [connection signal="update_weapon_stack" from="neck/head/weapon_manager" to="weapon_hud" method="_on_weapon_manager_update_weapon_stack"]

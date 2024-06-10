@@ -7,6 +7,7 @@ signal use_grapple
 
 @onready var animation_player = get_node("%animation_player")
 @onready var bullet_point = get_node("%bullet_point")
+@onready var sel_weapon = get_node("%outline_holder")
 
 var bullet_marker = preload("res://Assets/bullet_marker.tscn")
 
@@ -20,6 +21,7 @@ var weapon_list = {}
 @export var start_weapons: Array[String]
 
 enum weapon_type {Null, Hitscan, Projectile}
+enum {grappling_gun, throwing_knife, potato_cannon, fry_shotgun, rotary_mg}
 
 var collision_exclusion = []
 
@@ -83,6 +85,16 @@ func enter():
 	
 	emit_signal("weapon_changed", current_weapon.weapon_name)
 	emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
+	if current_weapon.weapon_name == "grappling_gun":
+		sel_weapon.position.x = -130
+	elif current_weapon.weapon_name == "throwing_knife":
+		sel_weapon.position.x = -70
+	elif current_weapon.weapon_name == "potato_cannon":
+		sel_weapon.position.x = -10
+	elif current_weapon.weapon_name == "fry_shotgun":
+		sel_weapon.position.x = 50
+	elif current_weapon.weapon_name == "rotary_mg":
+		sel_weapon.position.x = 110
 
 
 func change_weapon(weapon_name: String):

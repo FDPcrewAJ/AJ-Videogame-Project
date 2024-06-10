@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0xh76t4naon"
-path="res://.godot/imported/bg_grap_gun.PNG-06fe15e1ab976033865eff574cefb81c.ctex"
+uid="uid://cm3acl52rol04"
+path="res://.godot/imported/mg_ui_icon.png-3b03e2004d9e16d44ca27a2039128659.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/ui/bg_grap_gun.PNG"
-dest_files=["res://.godot/imported/bg_grap_gun.PNG-06fe15e1ab976033865eff574cefb81c.ctex"]
+source_file="res://Textures/ui/mg_ui_icon.png"
+dest_files=["res://.godot/imported/mg_ui_icon.png-3b03e2004d9e16d44ca27a2039128659.ctex"]
 
 [params]
 

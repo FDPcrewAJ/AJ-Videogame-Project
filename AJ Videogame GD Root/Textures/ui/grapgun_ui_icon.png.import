@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqgkrt0fl3roo"
-path="res://.godot/imported/bg_knife.PNG-57ff3b9a5017510edfb3c9bbeae60642.ctex"
+uid="uid://dyplgw50km8ui"
+path="res://.godot/imported/grapgun_ui_icon.png-786a9a1dc56751d56e25b8890e2e1cdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/ui/bg_knife.PNG"
-dest_files=["res://.godot/imported/bg_knife.PNG-57ff3b9a5017510edfb3c9bbeae60642.ctex"]
+source_file="res://Textures/ui/grapgun_ui_icon.png"
+dest_files=["res://.godot/imported/grapgun_ui_icon.png-786a9a1dc56751d56e25b8890e2e1cdf.ctex"]
 
 [params]
 
