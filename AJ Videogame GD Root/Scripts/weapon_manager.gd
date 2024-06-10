@@ -74,8 +74,6 @@ func initialize(_start_weapons: Array):
 		weapon_stack.push_back(i)
 	
 	current_weapon = weapon_list[weapon_stack[0]]
-	
-	emit_signal("update_weapon_stack", weapon_stack)
 	enter()
 
 
@@ -83,7 +81,6 @@ func enter():
 	#Call when you switch to a weapon
 	animation_player.queue(current_weapon.activate_anim)
 	
-	emit_signal("weapon_changed", current_weapon.weapon_name)
 	emit_signal("update_ammo", [current_weapon.current_ammo, current_weapon.magazine])
 	if current_weapon.weapon_name == "grappling_gun":
 		sel_weapon.position.x = -130
