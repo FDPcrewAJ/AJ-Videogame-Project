@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://co4otup2qrk0m"]
+[gd_scene load_steps=11 format=3 uid="uid://co4otup2qrk0m"]
 
 [ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="1_4bxn0"]
-[ext_resource type="PackedScene" uid="uid://cig5bv4l3apst" path="res://Scenes/controls.tscn" id="1_h7tgh"]
 [ext_resource type="Texture2D" uid="uid://biotaa1ke6tpc" path="res://Textures/Prototype Textures/Purple/texture_07.png" id="2_1oy6d"]
 [ext_resource type="Texture2D" uid="uid://ccsbn04f2a006" path="res://Imports/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_nrnvy"]
 [ext_resource type="PackedScene" uid="uid://cy7hnsibedn0j" path="res://Assets/player.tscn" id="3_x604m"]
@@ -32,8 +31,6 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [node name="Level_2" type="Node3D"]
-
-[node name="Controls" parent="." instance=ExtResource("1_h7tgh")]
 
 [node name="env" type="Node3D" parent="."]
 

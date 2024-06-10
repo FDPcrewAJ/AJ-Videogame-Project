@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cy7hnsibedn0j"]
+[gd_scene load_steps=50 format=3 uid="uid://cy7hnsibedn0j"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1plui"]
 [ext_resource type="PackedScene" uid="uid://ysudxhafxrwn" path="res://Scenes/scene_switch.tscn" id="2_1b7xy"]
@@ -21,7 +21,6 @@
 [ext_resource type="FontFile" uid="uid://dybhj5pc8e0n1" path="res://Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="15_jehua"]
 [ext_resource type="PackedScene" uid="uid://bkdgrhivvp1qe" path="res://Imports/fry shotgun/french_fry_shotgun.glb" id="15_q0a40"]
 [ext_resource type="FontFile" uid="uid://bj4dssu7l6lx7" path="res://Fonts/Itim/Itim-Regular.ttf" id="16_awsw6"]
-[ext_resource type="PackedScene" uid="uid://cig5bv4l3apst" path="res://Scenes/controls.tscn" id="17_sbmdl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vxfi"]
 
@@ -1257,11 +1256,38 @@ theme_override_font_sizes/font_size = 56
 text = "Restart Game"
 flat = true
 
-[node name="Controls" parent="." instance=ExtResource("17_sbmdl")]
+[node name="Controls_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 2.0
 offset_top = 1.0
-offset_right = 2.0
-offset_bottom = 1.0
+offset_right = 42.0
+offset_bottom = 41.0
+
+[node name="Label" type="Label" parent="Controls_UI"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 276.0
+offset_bottom = 228.0
+theme_override_fonts/font = ExtResource("16_awsw6")
+theme_override_font_sizes/font_size = 20
+text = "
+WASD = Movement
+Shift = Run
+Ctrl = Crouch
+Shift + Ctrl = Slide
+Alt + Mouse = Free Look
+F = Load Checkpoint
+P = Reset Scene"
+
+[node name="Label2" type="Label" parent="Controls_UI"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("16_awsw6")
+theme_override_font_sizes/font_size = 20
+text = "O = Show/Hide Controls"
 
 [connection signal="update_ammo" from="neck/head/weapon_manager" to="weapon_hud" method="_on_weapon_manager_update_ammo"]
 [connection signal="update_weapon_stack" from="neck/head/weapon_manager" to="weapon_hud" method="_on_weapon_manager_update_weapon_stack"]

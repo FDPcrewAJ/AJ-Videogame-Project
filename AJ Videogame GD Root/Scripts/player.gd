@@ -9,7 +9,7 @@ class_name Player
 @onready var camera_3d = $neck/head/player_camera
 @onready var grapplecast = $neck/head/grapple_cast
 @onready var death_menu = $death_menu
-@onready var controls = $Controls
+@onready var controls = $Controls_UI/Label
 var controls_bool = false
 
 # Varible to disable inputs when dead
