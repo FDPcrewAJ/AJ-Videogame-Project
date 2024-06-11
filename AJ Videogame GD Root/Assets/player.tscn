@@ -1046,6 +1046,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="head" type="Node3D" parent="neck"]
 
 [node name="player_camera" type="Camera3D" parent="neck/head"]
+cull_mask = 524287
 
 [node name="grapple_cast" type="RayCast3D" parent="neck/head"]
 target_position = Vector3(0, 0, -60)
