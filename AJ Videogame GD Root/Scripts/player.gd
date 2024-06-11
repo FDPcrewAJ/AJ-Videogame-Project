@@ -79,23 +79,6 @@ func _input(event):
 
 
 func grapple():
-	"""if Input.is_action_pressed("shoot"):
-		if grapplecast.is_colliding():
-			if not grappling:
-				grappling = true
-	else:
-		grappling = false
-	if grappling:
-		if not grapple_point_get:
-			grapple_point = grapplecast.get_collision_point()
-			grapple_point_get = true
-			grapple_length = grapple_point.distance_to(transform.origin)
-		if grapple_length > 1:
-			velocity.y = 0
-			if grapple_point_get:
-				transform.origin = lerp(transform.origin, grapple_point, delta * 1.5)
-	else:
-		grapple_point_get = false"""
 	look_for_point()
 	var length = calculate_path(get_position_delta())
 	draw_hook(length)

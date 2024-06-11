@@ -1253,7 +1253,7 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("16_awsw6")
 theme_override_font_sizes/font_size = 56
-text = "Restart Game"
+text = "Main Menu"
 flat = true
 
 [node name="Controls_UI" type="Control" parent="."]
@@ -1265,6 +1265,7 @@ offset_right = 42.0
 offset_bottom = 41.0
 
 [node name="Label" type="Label" parent="Controls_UI"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 276.0
@@ -1281,6 +1282,7 @@ F = Load Checkpoint
 P = Reset Scene"
 
 [node name="Label2" type="Label" parent="Controls_UI"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 176.0
