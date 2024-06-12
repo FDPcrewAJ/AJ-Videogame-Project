@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci4som4nw58jl"]
+[gd_scene load_steps=16 format=3 uid="uid://ci4som4nw58jl"]
 
 [ext_resource type="Environment" uid="uid://baxyw3s8ffr0p" path="res://Enviroments/test_env.tres" id="1_t76on"]
 [ext_resource type="Texture2D" uid="uid://37piemfrwg1i" path="res://Textures/Prototype Textures/Dark/texture_05.png" id="2_50jxt"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://biotaa1ke6tpc" path="res://Textures/Prototype Textures/Purple/texture_07.png" id="5_012gv"]
 [ext_resource type="PackedScene" uid="uid://dv20yes6ts7au" path="res://Assets/enemy.tscn" id="5_fp1xp"]
 [ext_resource type="PackedScene" uid="uid://bvbo0d7rp5dnk" path="res://Assets/checkpoint.tscn" id="6_3dy5k"]
+[ext_resource type="Texture2D" uid="uid://dd6cylivc221d" path="res://Textures/Prototype Textures/Orange/texture_09.png" id="6_yruf5"]
+[ext_resource type="Texture2D" uid="uid://bn2c1t26mg07m" path="res://Textures/Prototype Textures/Light/texture_03.png" id="8_xt04l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slw5i"]
 albedo_texture = ExtResource("2_50jxt")
@@ -20,6 +22,13 @@ uv1_triplanar = true
 albedo_texture = ExtResource("5_012gv")
 uv1_triplanar = true
 uv2_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhm8m"]
+albedo_texture = ExtResource("6_yruf5")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkj4l"]
+albedo_texture = ExtResource("8_xt04l")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3txmo"]
 size = Vector3(400, 1, 400)
@@ -204,6 +213,36 @@ use_collision = true
 size = Vector3(2.5, 0.5, 2)
 material = SubResource("StandardMaterial3D_5docv")
 
+[node name="CSGBox3D29" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-0.5, 0.866025, -7.57104e-08, 0.866025, 0.5, -4.37114e-08, 2.6054e-15, -8.74228e-08, -1, -1.75, 8.81699, 11.5)
+use_collision = true
+size = Vector3(6, 0.1, 2)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(0, 1, -8.74228e-08, 1, -3.10588e-22, -3.55271e-15, 2.6054e-15, -8.74228e-08, -1, 8.5, 7, 11.5)
+use_collision = true
+size = Vector3(2, 0.1, 1)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(2.6054e-15, -1.31134e-07, -1, 1, -3.10588e-22, -3.55271e-15, -1.13886e-22, -1, 1.31134e-07, 6.5, 14, 10.5)
+use_collision = true
+size = Vector3(2, 0.1, 1)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(0.866025, 0.353553, -0.353553, -3.09086e-08, -0.707107, -0.707107, -0.5, 0.612372, -0.612372, 10.5, 9.5, 5.5)
+use_collision = true
+size = Vector3(2, 0.1, 1)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1, -5.96046e-08, 7.10543e-15, -5.96046e-08, 1, -8.74228e-08, 2.6054e-15, -8.74228e-08, -1, 0, 6, 11.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 2)
+material = SubResource("StandardMaterial3D_5docv")
+
 [node name="CSGBox3D14" type="CSGBox3D" parent="world/parkour platforms"]
 transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, -6, 7.25, 5.5)
 use_collision = true
@@ -220,6 +259,150 @@ material = SubResource("StandardMaterial3D_5docv")
 transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, -1, 2.25, 8.5)
 use_collision = true
 size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 5.5, 6.25, 11.5)
+use_collision = true
+size = Vector3(0.5, 0.5, 2)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 7, 5.25, 11.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 9, 3.25, 11.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 12.5, 4.25, 14.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 14.5, 5.25, 14.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 14.5, 6.25, 12.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 12, 7.25, 11.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 4, 9.25, 8.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 7, 9.25, 6.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 13, 9.25, 2.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 14.5, 9.25, 4.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 14.5, 10.25, 7.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 14.5, 11.25, 9.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 12.5, 11.25, 10.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 13.5, 12.25, 14.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 8.5, 12.25, 14.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 6.5, 12.25, 12.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 6.5, 12.25, 9.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(2.6054e-15, -1.31134e-07, -1, 1, -3.10588e-22, -3.55271e-15, -1.13886e-22, -1, 1.31134e-07, 6.5, 14, 8.5)
+use_collision = true
+size = Vector3(2, 0.1, 1)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 6.5, 12.25, 7.5)
+use_collision = true
+size = Vector3(0.5, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(2.6054e-15, -1.31134e-07, -1, 1, -3.10588e-22, -3.55271e-15, -1.13886e-22, -1, 1.31134e-07, 6.5, 14, 6.5)
+use_collision = true
+size = Vector3(2, 0.1, 2.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 6.5, 12.25, 5.25)
+use_collision = true
+size = Vector3(1, 0.1, 0.5)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-3.67568e-08, 0.5, 0.866025, -6.36647e-08, 0.866025, -0.5, -1, -7.35137e-08, 1.91069e-15, 5, 8.5, 11.5)
+use_collision = true
+size = Vector3(0.5, 0.5, 1)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(7.31957e-16, 5.96046e-08, 1, -7.35137e-08, 1, -5.96046e-08, -1, -7.35137e-08, 3.82138e-15, 5.8, 8.3, 11.5)
+use_collision = true
+size = Vector3(0.5, 0.5, 1)
 material = SubResource("StandardMaterial3D_5docv")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="world/parkour platforms"]
@@ -276,6 +459,12 @@ use_collision = true
 size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_5docv")
 
+[node name="CSGBox3D32" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, -5, 11, 11.5)
+use_collision = true
+size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_5docv")
+
 [node name="CSGBox3D22" type="CSGBox3D" parent="world/parkour platforms"]
 transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, -8, 6, 11.5)
 use_collision = true
@@ -318,10 +507,104 @@ use_collision = true
 size = Vector3(0.5, 0.5, 0.1)
 material = SubResource("StandardMaterial3D_5docv")
 
+[node name="CSGBox3D59" type="CSGBox3D" parent="world/parkour platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 12, 1)
+size = Vector3(2, 0.5, 2)
+material = SubResource("StandardMaterial3D_jhm8m")
+
 [node name="checkpoints" type="Node3D" parent="world"]
 
 [node name="Checkpoint" parent="world/checkpoints" instance=ExtResource("6_3dy5k")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 7.5, 5.5)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="world/checkpoints"]
+transform = Transform3D(-1.3027e-15, 4.37114e-08, 1, -7.35137e-08, 1, -4.37114e-08, -1, -7.35137e-08, 1.91069e-15, 12.5, 3.25, 11.5)
+use_collision = true
+size = Vector3(4, 0.5, 3)
+material = SubResource("StandardMaterial3D_5docv")
+
+[node name="Checkpoint2" parent="world/checkpoints" instance=ExtResource("6_3dy5k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 3.5, 11.5)
+
+[node name="shooting_range" type="Node3D" parent="world"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 6, -14)
+use_collision = true
+size = Vector3(1, 12, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 6, -14)
+use_collision = true
+size = Vector3(1, 12, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 6, -14)
+use_collision = true
+size = Vector3(1, 12, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 6, -14)
+use_collision = true
+size = Vector3(1, 12, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 7, 2.75, -13)
+use_collision = true
+size = Vector3(0.5, 13, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 7, 5.75, -13)
+use_collision = true
+size = Vector3(0.5, 13, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 7, 8.75, -13)
+use_collision = true
+size = Vector3(0.5, 13, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 13, 2.75, -7)
+use_collision = true
+size = Vector3(0.5, 13, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 13, 5.75, -7)
+use_collision = true
+size = Vector3(0.5, 13, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 13, 8.75, -7)
+use_collision = true
+size = Vector3(0.5, 13, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 6, -9)
+use_collision = true
+size = Vector3(1, 12, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 6, -5)
+use_collision = true
+size = Vector3(1, 12, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="world/shooting_range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 6, -1)
+use_collision = true
+size = Vector3(1, 12, 1)
+material = SubResource("StandardMaterial3D_dkj4l")
 
 [node name="death_detector" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
@@ -343,7 +626,82 @@ transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -11, 2, -6
 [node name="Enemy4" parent="enemies" instance=ExtResource("5_fp1xp")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -5, 0, -5)
 
+[node name="Enemy7" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 11, 0, -13)
+
+[node name="Enemy11" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 7, 0, -13)
+
+[node name="Enemy12" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 3, 0, -13)
+
+[node name="Enemy8" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 0, -11)
+
+[node name="Enemy9" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 0, -7)
+
+[node name="Enemy10" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 0, -3)
+
+[node name="Enemy13" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 11, 3, -13)
+
+[node name="Enemy14" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 7, 3, -13)
+
+[node name="Enemy15" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 3, 3, -13)
+
+[node name="Enemy16" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 3, -11)
+
+[node name="Enemy17" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 3, -7)
+
+[node name="Enemy18" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 3, -3)
+
+[node name="Enemy19" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 11, 6, -13)
+
+[node name="Enemy20" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 7, 6, -13)
+
+[node name="Enemy21" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 3, 6, -13)
+
+[node name="Enemy22" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 6, -11)
+
+[node name="Enemy23" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 6, -7)
+
+[node name="Enemy24" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 6, -3)
+
+[node name="Enemy25" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 11, 9, -13)
+
+[node name="Enemy26" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 7, 9, -13)
+
+[node name="Enemy27" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 3, 9, -13)
+
+[node name="Enemy28" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 9, -11)
+
+[node name="Enemy29" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 9, -7)
+
+[node name="Enemy30" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, 13, 9, -3)
+
 [node name="Enemy5" parent="enemies" instance=ExtResource("5_fp1xp")]
 transform = Transform3D(8.9407e-08, 0, 1, 0, 1, 0, -1, 0, 8.9407e-08, -13, 0, 14)
+
+[node name="Enemy6" parent="enemies" instance=ExtResource("5_fp1xp")]
+transform = Transform3D(-1, 0, 4.56956e-08, 0, 1, 0, -4.56956e-08, 0, -1, -5, 11.5, 11.5)
 
 [connection signal="area_entered" from="death_detector" to="Player" method="_on_death_detector_area_entered"]
